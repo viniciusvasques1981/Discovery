@@ -10,6 +10,18 @@
 
 ### Limitações técnicas
 
+### Dados pessoais e conformidade
+
+| Pergunta | Resposta | Origem |
+| :--- | :--- | :--- |
+| A iniciativa trata dados pessoais? Quais? | | |
+| Há dados pessoais sensíveis ou de crianças e adolescentes? | | |
+| Quem são os titulares? | | |
+| Há exigência regulatória, contratual ou de segurança citada? | | |
+| Quem responde por privacidade e segurança na organização? | | |
+
+Resposta não encontrada nos insumos é registrada como Dúvida. Este bloco identifica o tema; não substitui parecer jurídico nem avaliação do encarregado de dados.
+
 ## Matriz CSD
 
 ### Certezas

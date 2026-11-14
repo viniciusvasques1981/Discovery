@@ -12,7 +12,7 @@ Módulos 1 e 2 da Esteira de Produto AI-Enhanced.
 | **Frameworks** | Design Thinking (fase de Empatia), Golden Circle, Lean UX |
 | **Entradas** | Transcrições, notas de imersão, entrevistas, documentos legados |
 | **Saídas** | `01-discovery.md` e `02-estrategia.md` em `iniciativas/<slug>/` |
-| **Próxima skill** | `behavioral-modeling-feature-framing` |
+| **Próxima skill** | `behavioral-modeling-feature-framing`; antes dela, opcionalmente, `hypothesis-validation-research` (Etapa 2B) |
 
 ## Regras de execução
 
@@ -31,6 +31,7 @@ Módulos 1 e 2 da Esteira de Produto AI-Enhanced.
 - **Cenário atual:** como o processo funciona hoje, quem participa e quais sistemas estão envolvidos.
 - **Premissas:** condições assumidas como verdadeiras pelos participantes.
 - **Limitações técnicas:** restrições de infraestrutura, integração, prazo, orçamento ou conformidade citadas.
+- **Dados pessoais e conformidade:** quais dados pessoais a iniciativa trata, quem são os titulares, se há dados sensíveis e quais exigências regulatórias (LGPD), contratuais ou de segurança foram citadas. Resposta ausente nos insumos é registrada como Dúvida. O bloco identifica o tema; não substitui parecer jurídico nem avaliação do encarregado de dados.
 
 #### 2. Triagem CSD (Matriz de Certezas, Suposições e Dúvidas)
 
@@ -66,6 +67,8 @@ Converter as Suposições de maior risco em hipóteses testáveis:
 
 Priorizar por risco (impacto se a hipótese for falsa) e por custo de validação.
 
+As hipóteses de risco alto podem ser testadas antes do Módulo 3 pela Etapa 2B, opcional (`hypothesis-validation-research`). Se a etapa não for executada, as hipóteses seguem com a situação "não validada" e a decisão é registrada em `contexto.md`.
+
 #### 7. Formulação de OKRs
 
 Estruturar 1 Objetivo qualitativo e inspirador acompanhado de 3 Key Results com baseline, meta e janela temporal definida, categorizados pela tipologia de medição correspondente:
@@ -90,7 +93,7 @@ Usar os modelos `assets/01-discovery.md` e `assets/02-estrategia.md`.
 
 **`01-discovery.md`**
 
-- **Download do Problema:** cenário atual, premissas e limitações técnicas.
+- **Download do Problema:** cenário atual, premissas, limitações técnicas e dados pessoais e conformidade.
 - **Matriz CSD:** Seções dedicadas para Certezas, Suposições e Dúvidas.
 - **Dores Validadas do Negócio/Operação.**
 
@@ -102,4 +105,4 @@ Usar os modelos `assets/01-discovery.md` e `assets/02-estrategia.md`.
 
 ## Passagem de contexto
 
-Ao concluir, atualizar `iniciativas/<slug>/contexto.md` (modelo em `assets/contexto.md`) com: Por quê, Visão de Produto, dores validadas, OKRs, limitações técnicas e Dúvidas ainda abertas. Esse resumo é a entrada obrigatória do Módulo 3.
+Ao concluir, atualizar `iniciativas/<slug>/contexto.md` (modelo em `assets/contexto.md`) com: Por quê, Visão de Produto, dores validadas, OKRs, limitações técnicas, dados pessoais e conformidade, hipóteses com a respectiva situação e Dúvidas ainda abertas. Esse resumo é a entrada obrigatória do Módulo 3.

@@ -24,13 +24,14 @@ O painel pode ser reduzido a 3 consultores ou ter perfis substituídos conforme 
 ## Algoritmo de Execução
 
 1. **Enquadrar a decisão:** reescrever em uma frase a decisão a ser tomada, as opções em análise e as restrições conhecidas. Se a decisão ou as opções não estiverem claras, pedir esclarecimento antes de montar o painel.
-2. **Pareceres independentes:** cada consultor emite parecer sem referência aos demais, contendo posição, justificativa, principal risco e condição que o faria mudar de posição.
+2. **Pareceres independentes:** cada consultor emite parecer sem referência aos demais, contendo posição, justificativa, principal risco e condição que o faria mudar de posição. Onde houver subagentes, gerar cada parecer em um subagente separado, que recebe apenas a decisão enquadrada e o perfil do consultor; os pareceres são reunidos na conversa principal. Sem subagentes, redigir cada parecer por completo antes de iniciar o seguinte.
 3. **Mapa de convergência:** apontar onde os pareceres concordam, onde divergem e o motivo da divergência (premissa diferente, horizonte de tempo diferente ou critério diferente).
 4. **Síntese:** recomendação do painel, condições para a recomendação valer e a informação ausente que mais alteraria o resultado.
 
 ## Regras de execução
 
 - Os pareceres são simulações de pontos de vista, não opiniões de especialistas reais. Registrar essa condição na entrega.
+- Pareceres gerados em uma única conversa tendem a convergir, porque cada um é escrito com os anteriores à vista. Quando a execução não for por subagentes, registrar essa limitação na entrega.
 - Não forçar consenso. Divergência não resolvida deve ser apresentada como tal.
 - Números usados pelos consultores devem vir do contexto fornecido. Quando ausentes, o consultor indica qual dado precisaria para sustentar a posição.
 

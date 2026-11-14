@@ -22,6 +22,20 @@ Módulo 7 — ciclo pós-entrega da Esteira de Produto AI-Enhanced.
 3. Não extrapolar a partir de amostras pequenas. Informar o volume que sustenta cada achado.
 4. Correções de baixo risco e causa evidente seguem direto para implementação. Correções com causa incerta ou impacto em métrica de negócio seguem para `behavioral-experimentation-cro`.
 
+## Coleta de dados do Microsoft Clarity
+
+O script `scripts/clarity_resumo.py` converte a resposta da Data Export API do Clarity em tabelas Markdown, uma por métrica, para uso como insumo deste módulo.
+
+```bash
+# a partir de um arquivo JSON já exportado
+python3 scripts/clarity_resumo.py --arquivo export.json > iniciativas/<slug>/00-insumos/clarity.md
+
+# consultando a API (token em CLARITY_API_TOKEN)
+python3 scripts/clarity_resumo.py --dias 3 --dimensao URL > iniciativas/<slug>/00-insumos/clarity.md
+```
+
+A API retorna dados agregados dos últimos 1 a 3 dias e tem limite diário de requisições por projeto. O período curto é uma limitação a declarar no diagnóstico; gravações de sessão e heatmaps continuam sendo consultados na interface do Clarity.
+
 ## Algoritmo de Execução
 
 ### 1. Diagnóstico de Métricas Comportamentais

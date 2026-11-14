@@ -1,6 +1,6 @@
 # Módulo 4 — Feature Frames: [iniciativa]
 
-**Entrada:** `contexto.md`, `03-modelagem.md`
+**Entrada:** `contexto.md`, `03-modelagem.md` e, se executadas, `02b-validacao-hipoteses.md` e `03b-arvore-oportunidades.md`
 
 ## Catálogo de Feature Frames
 
@@ -10,11 +10,15 @@
 | :--- | :--- |
 | **Estágio da jornada** | J_ |
 | **Key Result relacionado** | KR_ |
+| **Dor atendida** | P_ |
+| **Hipótese de origem e situação** | H_ — validada / não validada |
 | **Contexto** | Momento exato e gatilho em que a funcionalidade entra em ação. |
 | **Problema** | A dor específica resolvida naquele ponto da jornada. |
 | **Solução** | O comportamento funcional e visual executado pelo sistema. |
 | **MVP** | Sim / Não |
-| **Esforço (Fibonacci)** | 1 / 2 / 3 / 5 / 8 / 13 — preliminar |
+| **Valor (1–5)** | |
+| **Confiança** | Alta / Média / Baixa |
+| **Esforço (Fibonacci)** | 1 / 2 / 3 / 5 / 8 / 13 |
 
 **Out of Scope (Limites Rígidos):**
 
@@ -23,11 +27,23 @@
 
 ---
 
+## Checagem de viabilidade técnica
+
+Preenchida pelo Tech Lead (pessoa ou agente `handoff-tech-lead`) antes do recorte de MVP.
+
+| Feature Frame | Esforço proposto | Esforço revisado | Dependências e restrições | Risco técnico | Parecer |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| FF-01 | | | | Alto / Médio / Baixo | Viável / Viável com ressalva / Inviável neste ciclo |
+
+**Responsável pela checagem:** [nome ou agente] — [data]
+
 ## Matriz de priorização
 
-| Ordem | Feature Frame | Estágio | Key Result | MVP | Esforço |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | FF-01 | | | | |
+Índice = Valor × Confiança ÷ Esforço revisado, com Confiança Alta = 1,0; Média = 0,7; Baixa = 0,4. Os pesos são convenção deste repositório e podem ser ajustados pelo time.
+
+| Ordem | Feature Frame | Estágio | Key Result | Valor | Confiança | Esforço | Índice | MVP |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | FF-01 | | | | | | | |
 
 ## Recorte de MVP
 

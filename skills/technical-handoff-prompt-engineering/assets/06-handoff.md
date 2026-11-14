@@ -85,11 +85,29 @@ Funcionalidade: [nome]
 Os cenários BDD de cada issue devem passar.
 ```
 
-## Métricas a instrumentar
+## Plano de Instrumentação
 
-| Key Result | Evento ou medida | Onde instrumentar |
-| :--- | :--- | :--- |
-| | | |
+Entregável obrigatório. Cada Key Result precisa de ao menos um evento ou medida que permita calculá-lo.
+
+| Key Result | Evento ou medida | Gatilho | Propriedades | Onde instrumentar | Issue |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| KR_ | `nome_do_evento` | Ação ou estado que dispara o registro | | Frontend / Backend / Ferramenta analítica | FF-_ |
+
+**Linha de base**
+
+| Key Result | Linha de base atual | Fonte | Situação |
+| :--- | :--- | :--- | :--- |
+| KR_ | | | Coletada / A coletar antes do lançamento |
+
+Linha de base não disponível deve ser coletada antes do lançamento. Sem ela, o Key Result não pode ser avaliado após a entrega.
+
+## Dados pessoais e conformidade
+
+| Dado pessoal | Finalidade | Onde é armazenado | Quem acessa | Retenção | Situação |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| | | | | | confirmado / `[a validar com o responsável por privacidade]` |
+
+Eventos do plano de instrumentação não devem carregar dados pessoais em propriedades sem necessidade. Ferramentas de gravação de sessão exigem mascaramento de campos sensíveis.
 
 ## Verificação de rastreabilidade
 
@@ -99,3 +117,5 @@ Os cenários BDD de cada issue devem passar.
 | Toda issue tem caminho feliz, exceção e borda | | |
 | Out of Scope idêntico em Feature Frame, issue e System Prompt | | |
 | Por quê e Key Result presentes em cada issue | | |
+| Todo Key Result tem evento no plano de instrumentação | | |
+| Todo dado pessoal tem finalidade e responsável | | |

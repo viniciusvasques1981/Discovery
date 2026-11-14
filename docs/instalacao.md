@@ -28,7 +28,7 @@ Como arquivos de projeto:
 ./Discovery/scripts/install.sh claude /caminho/do/projeto
 ```
 
-Uso: as skills são ativadas pela descrição ou por nome (`/discovery-product-strategy`). Os agentes ficam disponíveis para delegação; para iniciar pela coordenação, peça o agente `esteira-orchestrator`.
+Uso: as skills são ativadas pela descrição ou por nome (`/discovery-product-strategy`). Os agentes ficam disponíveis para delegação; para iniciar pela coordenação, acione a skill `esteira-orchestration` (`/esteira-orchestration`), que roda na conversa principal e delega cada módulo.
 
 ## Gemini CLI
 
@@ -70,7 +70,25 @@ python3 scripts/esteira.py package
 
 Os arquivos são gravados em `dist/`. Cada `.zip` contém a pasta da skill com `SKILL.md` e `assets/`, pronto para upload na área de skills do aplicativo.
 
-Em ferramentas sem suporte a skills (por exemplo, um Gem ou um Project com instruções personalizadas), cole o conteúdo do `SKILL.md` do módulo como instrução e anexe o modelo correspondente de `templates/`. A passagem de contexto é manual: ao iniciar um módulo, cole o `contexto.md` atualizado, conforme a Regra de Ouro do guia.
+Em ferramentas sem suporte a skills (por exemplo, um Gem ou um Project com instruções personalizadas), cole o conteúdo do `SKILL.md` do módulo como instrução e anexe o modelo correspondente de `templates/`. A passagem de contexto é manual: ao iniciar um módulo, cole o `contexto.md` atualizado, conforme a Regra de Ouro do guia. A revisão independente deve ser feita em uma conversa nova, apenas com o artefato e os insumos, usando a skill `artifact-evidence-review`.
+
+## Automações opcionais
+
+| Script | Função | Requisitos |
+| :--- | :--- | :--- |
+| `scripts/criar_issues.py` | Cria uma issue no GitHub por bloco `### ISSUE` de um `06-handoff.md` | CLI `gh` instalada e autenticada |
+| `scripts/clarity_resumo.py` | Converte a resposta da Data Export API do Microsoft Clarity em tabelas Markdown | Token da API em `CLARITY_API_TOKEN`, ou um JSON já exportado |
+
+```bash
+# Exibe as issues que seriam criadas; nada é enviado sem --criar
+python3 scripts/criar_issues.py iniciativas/<slug>/06-handoff.md --repo dono/repositorio
+python3 scripts/criar_issues.py iniciativas/<slug>/06-handoff.md --repo dono/repositorio --criar
+
+# Resumo de telemetria para o Módulo 7
+python3 scripts/clarity_resumo.py --dias 3 --dimensao URL > iniciativas/<slug>/00-insumos/clarity.md
+```
+
+O `criar_issues.py` recusa a criação quando encontra campos do modelo não preenchidos ou issue sem Out of Scope, Por quê ou cenários BDD. O `clarity_resumo.py` foi testado com dados sintéticos no formato documentado pela Microsoft; não foi executado contra um projeto real do Clarity. A API cobre apenas os últimos 1 a 3 dias e tem cota diária de requisições por projeto.
 
 ## Manutenção
 

@@ -16,7 +16,8 @@ Os módulos são independentes: uma hipótese de produto pode ir direto ao Módu
 
 ## Entradas
 
-- Exportações, capturas ou relatórios de ferramentas analíticas, com período e volume de sessões.
+- Exportações, capturas ou relatórios de ferramentas analíticas, com período e volume de sessões. Para o Microsoft Clarity, o resumo gerado por `scripts/clarity_resumo.py`.
+- Plano de Instrumentação de `06-handoff.md`, para confrontar os eventos previstos com os dados disponíveis.
 - `iniciativas/<slug>/contexto.md` e `02-estrategia.md` (Matriz de Hipóteses e OKRs), quando existirem.
 
 ## Saídas
@@ -41,4 +42,4 @@ Os módulos são independentes: uma hipótese de produto pode ir direto ao Módu
 - Plano de experimento com hipótese, variantes, métricas, amostragem e critério de decisão.
 - Suposições da Matriz CSD reclassificadas após resultados.
 
-Retroalimentação: `discovery-strategist`, para revisão da Matriz CSD e dos OKRs.
+Revisão: `artifact-reviewer`. Retroalimentação: `discovery-strategist`, para revisão da Matriz CSD e dos OKRs.

@@ -24,14 +24,26 @@ DIST = ROOT / "dist"
 # Fonte única: templates/. Cada skill recebe uma cópia dos modelos que utiliza.
 SKILL_TEMPLATES = {
     "discovery-product-strategy": ["01-discovery.md", "02-estrategia.md", "contexto.md"],
-    "behavioral-modeling-feature-framing": ["03-modelagem.md", "04-feature-frames.md", "contexto.md"],
+    "hypothesis-validation-research": ["02b-validacao-hipoteses.md", "contexto.md"],
+    "behavioral-modeling-feature-framing": [
+        "03-modelagem.md", "03b-arvore-oportunidades.md", "04-feature-frames.md", "contexto.md",
+    ],
     "systemic-ui-interaction-design": ["05-prototipacao.md", "contexto.md"],
-    "technical-handoff-prompt-engineering": ["06-handoff.md", "contexto.md"],
+    "prototype-usability-testing": ["05b-teste-usabilidade.md", "contexto.md"],
+    "technical-handoff-prompt-engineering": ["04-feature-frames.md", "06-handoff.md", "contexto.md"],
     "behavioral-analytics-ux-fixes": ["07-diagnostico-comportamental.md", "contexto.md"],
     "behavioral-experimentation-cro": ["08-experimentos.md", "contexto.md"],
+    "artifact-evidence-review": ["revisoes.md", "contexto.md"],
+    "esteira-orchestration": ["contexto.md"],
     "match-my-writing-style": ["voice-card.md"],
     "get-more-perspectives": [],
 }
+
+SKILL_PREFIXES = (
+    "discovery-", "behavioral-", "systemic-", "technical-", "get-more", "match-my",
+    "hypothesis-", "prototype-", "artifact-evidence", "esteira-",
+)
+AGENT_SUFFIXES = ("-strategist", "-modeler", "-designer", "-lead", "-analyst", "-orchestrator", "-reviewer")
 
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
@@ -101,9 +113,7 @@ def validate() -> int:
             if not (folder / "assets" / ref).exists():
                 errors.append(f"{folder.name}: referência a assets/{ref} inexistente")
         for ref in re.findall(r"`([a-z0-9-]+)`", body):
-            if ref.count("-") >= 2 and ref not in skill_names | agent_names and ref.startswith(
-                ("discovery-", "behavioral-", "systemic-", "technical-", "get-more", "match-my")
-            ):
+            if ref.count("-") >= 2 and ref not in skill_names | agent_names and ref.startswith(SKILL_PREFIXES):
                 errors.append(f"{folder.name}: referência a skill inexistente '{ref}'")
 
     for skill, names in SKILL_TEMPLATES.items():
@@ -129,9 +139,9 @@ def validate() -> int:
         for ref in set(re.findall(r"`([a-z0-9]+(?:-[a-z0-9]+)+)`", body)):
             if ref in skill_names | agent_names:
                 continue
-            if ref.endswith(("-strategist", "-modeler", "-designer", "-lead", "-analyst", "-orchestrator")):
+            if ref.endswith(AGENT_SUFFIXES):
                 errors.append(f"agents/{path.name}: referência a agente inexistente '{ref}'")
-            if ref.startswith(("discovery-", "behavioral-", "systemic-", "technical-", "get-more", "match-my")):
+            if ref.startswith(SKILL_PREFIXES):
                 errors.append(f"agents/{path.name}: referência a skill inexistente '{ref}'")
 
     # Links relativos em Markdown

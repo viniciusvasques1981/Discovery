@@ -13,7 +13,7 @@ Módulo 5 da Esteira de Produto AI-Enhanced.
 | **Entradas** | `contexto.md`, `04-feature-frames.md` e o Design System da empresa (documentação, tokens ou biblioteca de componentes) |
 | **Saída** | `05-prototipacao.md` em `iniciativas/<slug>/` |
 | **Skill anterior** | `behavioral-modeling-feature-framing` |
-| **Próxima skill** | `technical-handoff-prompt-engineering` |
+| **Próxima skill** | `technical-handoff-prompt-engineering`; antes dela, opcionalmente, `prototype-usability-testing` (Etapa 5B) |
 
 ## Regras de execução
 
@@ -70,3 +70,5 @@ Usar o modelo `assets/05-prototipacao.md`.
 ## Passagem de contexto
 
 Ao concluir, atualizar `iniciativas/<slug>/contexto.md` com: lista de telas, componentes obrigatórios, lacunas do Design System e o Guia de UI. Esse resumo é a entrada do Módulo 6.
+
+Antes do handoff, a especificação pode ser testada com usuários pela Etapa 5B, opcional (`prototype-usability-testing`). Se a etapa não for executada, registrar a decisão em `contexto.md`: a usabilidade passa a ser verificada apenas em produção, no Módulo 7.

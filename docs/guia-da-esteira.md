@@ -135,13 +135,18 @@ O momento de "passar o bastão" falando a língua do robô (Copilot) e do desenv
 
 ---
 
-## Extensão: ciclo pós-entrega
+## Extensões deste repositório
 
-Este repositório acrescenta dois módulos ao guia original, baseados nas skills de analytics e experimentação:
+O texto acima reproduz o guia original. O repositório acrescenta:
 
-| Módulo | Framework | Entrega Principal |
+| Acréscimo | Tipo | Impacto no cronograma de 2 dias |
 | :---- | :---- | :---- |
-| 7. Medição | Heurísticas de usabilidade | Diagnóstico comportamental e matriz de intervenção de UX |
-| 8. Experimentação | Experimentação controlada (A/B/n) | Plano de experimento com métricas guardiãs |
+| Módulo 7 — Medição e Módulo 8 — Experimentação | Ciclo pós-entrega | Nenhum: ocorrem após a entrega |
+| Etapa 2B — Validação de Hipóteses | Opcional | Dias; ocorre fora da imersão |
+| Etapa 3B — Árvore de Oportunidades | Opcional | Horas |
+| Etapa 5B — Teste de Usabilidade | Opcional | Dias; ocorre fora da imersão |
+| Checagem de viabilidade técnica, valor e confiança no Módulo 4 | Obrigatório | Baixo |
+| Plano de instrumentação e dados pessoais nos Módulos 1 e 6 | Obrigatório | Baixo |
+| Revisão independente e aprovador por módulo | Obrigatório | Baixo |
 
-Detalhes em [mapa-da-esteira.md](mapa-da-esteira.md).
+A trilha expressa (Módulos 1 a 6, sem etapas opcionais) mantém o cronograma do guia. Detalhes em [mapa-da-esteira.md](mapa-da-esteira.md).
