@@ -35,13 +35,14 @@ SKILL_TEMPLATES = {
     "behavioral-experimentation-cro": ["08-experimentos.md", "contexto.md"],
     "artifact-evidence-review": ["revisoes.md", "contexto.md"],
     "esteira-orchestration": ["contexto.md"],
+    "pocket-feature-frame": ["pocket.md"],
     "match-my-writing-style": ["voice-card.md"],
     "get-more-perspectives": [],
 }
 
 SKILL_PREFIXES = (
     "discovery-", "behavioral-", "systemic-", "technical-", "get-more", "match-my",
-    "hypothesis-", "prototype-", "artifact-evidence", "esteira-",
+    "hypothesis-", "prototype-", "artifact-evidence", "esteira-", "pocket-",
 )
 AGENT_SUFFIXES = ("-strategist", "-modeler", "-designer", "-lead", "-analyst", "-orchestrator", "-reviewer")
 

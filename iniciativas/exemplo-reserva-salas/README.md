@@ -14,6 +14,7 @@ Finalidades:
 | `contexto.md` | — | Resumo acumulado, aprovações e etapas opcionais |
 | `01-discovery.md` a `06-handoff.md` | 1 a 6 | Trilha expressa: as etapas 2B, 3B e 5B não foram executadas, e o registro do risco aceito está em `contexto.md` |
 | `07-diagnostico-comportamental.md`, `08-experimentos.md` | 7 e 8 | Ciclo pós-entrega |
+| `ajustes/AJ-01-celula-ocupada.md` | Trilha pocket | Ajuste pequeno derivado do achado A1 do Módulo 7 |
 | `revisoes.md` | Revisão | Pareceres do `artifact-reviewer`, incluindo um apontamento corrigido |
 
 A pasta `00-insumos/` deste exemplo é versionada por exceção, definida no `.gitignore`.

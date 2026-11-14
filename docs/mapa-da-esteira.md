@@ -48,8 +48,25 @@ Componentes sem agente:
 | Skill | Função |
 | :--- | :--- |
 | [`esteira-orchestration`](../skills/esteira-orchestration/SKILL.md) | Coordenação: trilha, delegação, revisão e aprovações |
+| [`pocket-feature-frame`](../skills/pocket-feature-frame/SKILL.md) | Trilha pocket: ajuste pequeno em um único documento |
 | [`get-more-perspectives`](../skills/get-more-perspectives/SKILL.md) | Painel de 3 a 5 pontos de vista para decisões com mais de uma opção viável |
 | [`match-my-writing-style`](../skills/match-my-writing-style/SKILL.md) | Aplicação do estilo de escrita do usuário em textos de comunicação |
+
+## Trilha pocket
+
+Para ajustes pequenos em produto existente. Condensa os Módulos 1 a 7 em um único documento curto, produzido por uma única skill, sem agentes.
+
+| Bloco do documento | Módulo de origem | O que resta |
+| :--- | :--- | :--- |
+| 0. Triagem | — | Sete critérios de entrada; um "Não" encaminha para a trilha expressa |
+| 1. Problema e evidência | 1 — Discovery | Uma evidência obrigatória; suposição declarada |
+| 2. Resultado esperado | 2 — Estratégia | Uma métrica, vinculada a Key Result existente |
+| 3. Feature Frame | 4 — Feature Frame | Um único frame, com Out of Scope |
+| 4. Interface | 5 — Prototipação | Somente o que muda: antes e depois |
+| 5. Handoff | 6 — Handoff | Uma issue com três cenários BDD, incluindo não regressão |
+| 6. Verificação pós-entrega | 7 — Medição | O que conferir, onde e quando |
+
+O Módulo 3 não tem bloco próprio: a trilha pocket usa a modelagem já existente na iniciativa. Critérios de triagem (todos devem ser atendidos): um único ponto do fluxo; uma única issue com esforço até 5; sem dados pessoais novos; sem integração nem mudança de modelo de dados; reversível; sem alteração de Visão, OKRs ou Out of Scope vigente; ao menos uma evidência.
 
 ## Trilhas e impacto no prazo
 
@@ -90,6 +107,7 @@ Aplicação:
 | Componente | Forma | Justificativa |
 | :--- | :--- | :--- |
 | Orquestração | Skill | Dialoga com o usuário e delega a agentes. Era agente na primeira versão; foi convertida |
+| Trilha pocket | Skill | Insumo pequeno e diálogo direto com o solicitante; um contexto separado só acrescentaria custo |
 | Revisão de artefatos | Skill + agente | O método é a skill; a independência exige o contexto separado do agente |
 | `discovery-strategist`, `growth-analyst` | Agente | Processam transcrições e telemetria volumosas |
 | `handoff-tech-lead` | Agente | Atua em dois módulos, e a checagem de viabilidade se beneficia de visão separada da de produto |
@@ -140,6 +158,7 @@ Acréscimos que não constam no guia:
 | Aprovador por módulo | `contexto.md` | Sim |
 | Criação de issues e resumo do Clarity por script | `scripts/` | Não |
 | Iniciativa de exemplo | `iniciativas/exemplo-reserva-salas/` | — |
+| Trilha pocket para ajustes pequenos | `pocket-feature-frame` | Alternativa às demais trilhas |
 
 Pontos em que guia e skills divergem e a decisão adotada:
 

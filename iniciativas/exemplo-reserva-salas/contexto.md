@@ -100,4 +100,5 @@
 | Data | Artefato | O que mudou | Motivo |
 | :--- | :--- | :--- | :--- |
 | 2026-11-04 | `06-handoff.md` | Incluída a medida manual do KR3 no Plano de Instrumentação | Apontamento R-01 da revisão independente |
+| 2027-02-15 | `ajustes/AJ-01-celula-ocupada.md` | Célula de horário ocupado perde a aparência interativa (trilha pocket) | Dead click em 21,1% das sessões (achado A1) |
 | 2027-02-12 | `01-discovery.md` (Matriz CSD) | S1 reclassificada como Certeza provisória; S4 com evidência favorável | Resultados de produção (Módulo 7) |

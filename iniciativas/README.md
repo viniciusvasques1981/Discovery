@@ -4,6 +4,8 @@ Cada iniciativa conduzida pela esteira ocupa uma pasta `iniciativas/<slug>/`, co
 
 Referência de preenchimento: [`exemplo-reserva-salas/`](exemplo-reserva-salas/README.md), iniciativa fictícia completa.
 
+Ajustes pequenos não abrem iniciativa: usam a skill `pocket-feature-frame` e geram um arquivo em `iniciativas/<slug>/ajustes/` ou, sem iniciativa relacionada, em `ajustes/` na raiz.
+
 Para abrir uma iniciativa:
 
 1. Criar `iniciativas/<slug>/` e copiar [`templates/contexto.md`](../templates/contexto.md) para dentro dela.

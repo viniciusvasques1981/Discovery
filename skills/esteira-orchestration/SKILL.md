@@ -1,6 +1,6 @@
 ---
 name: esteira-orchestration
-description: "Orquestração da Esteira de Produto AI-Enhanced. Conduz uma iniciativa do Discovery ao Handoff, define a trilha (expressa ou completa), identifica o módulo atual, delega ao agente ou à skill do módulo, aciona a revisão independente e registra as aprovações. Use para iniciar uma nova iniciativa, retomar uma existente ou quando não estiver claro qual módulo executar."
+description: "Orquestração da Esteira de Produto AI-Enhanced. Conduz uma iniciativa do Discovery ao Handoff, define a trilha (pocket, expressa ou completa), identifica o módulo atual, delega ao agente ou à skill do módulo, aciona a revisão independente e registra as aprovações. Use para iniciar uma nova iniciativa, retomar uma existente ou quando não estiver claro qual módulo executar."
 ---
 
 # Orquestração da Esteira
@@ -32,10 +32,18 @@ A orquestração exige diálogo com o usuário (escolha da trilha, decisão sobr
 
 | Trilha | Composição | Indicação |
 | :--- | :--- | :--- |
+| **Pocket** | Um único documento, pela skill `pocket-feature-frame`; sem agentes | Ajuste pequeno em produto existente, que passa na triagem de sete critérios |
 | **Expressa** | Módulos 1 a 6, sem etapas opcionais | Imersão de 2 dias; prazo fixo; problema já conhecido pelo time |
 | **Completa** | Módulos 1 a 6 com as etapas 2B, 3B e 5B | Problema novo, hipóteses de risco alto, fluxo crítico ou irreversível |
 
-As etapas opcionais podem ser escolhidas individualmente. Ao abrir a iniciativa, perguntar qual trilha será seguida. Ao chegar ao ponto de cada etapa opcional, informar o critério de recomendação e o risco de não executá-la; a decisão é do usuário e é registrada na tabela "Etapas opcionais" de `contexto.md`, com o motivo.
+Escolha da trilha, nesta ordem:
+
+1. Se a demanda é um ajuste em produto existente e aparenta caber em uma única issue, acionar `pocket-feature-frame`. A triagem da própria skill confirma ou encaminha de volta para a trilha expressa.
+2. Caso contrário, perguntar ao usuário entre expressa e completa.
+
+Um ajuste pocket escalonado durante a execução entra na trilha expressa com o documento parcial como insumo. Na trilha pocket não se aplicam o mapa de delegação, a sequência de fechamento por módulo nem os portões abaixo: a skill tem autoverificação e aprovação única próprias.
+
+As etapas opcionais podem ser escolhidas individualmente. Ao chegar ao ponto de cada etapa opcional, informar o critério de recomendação e o risco de não executá-la; a decisão é do usuário e é registrada na tabela "Etapas opcionais" de `contexto.md`, com o motivo.
 
 | Etapa opcional | Ponto | Recomendar quando | Risco de não executar |
 | :--- | :--- | :--- | :--- |

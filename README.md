@@ -35,10 +35,11 @@ Componentes transversais:
 
 | Trilha | Composição | Indicação |
 | :--- | :--- | :--- |
+| **Pocket** | Um documento curto ([`pocket-feature-frame`](skills/pocket-feature-frame/SKILL.md)) | Ajuste pequeno em produto existente, que caiba em uma única issue |
 | **Expressa** | Módulos 1 a 6 | Imersão de 2 dias; prazo fixo |
 | **Completa** | Módulos 1 a 6 com as etapas 2B, 3B e 5B | Problema novo, hipóteses de risco alto, fluxo crítico |
 
-As etapas opcionais dependem de coleta com pessoas e acrescentam dias ao ciclo. Quando não executadas, o risco aceito fica registrado em `contexto.md`.
+A trilha pocket tem uma triagem de sete critérios; um "Não" encaminha a demanda para a trilha expressa. As etapas opcionais dependem de coleta com pessoas e acrescentam dias ao ciclo. Quando não executadas, o risco aceito fica registrado em `contexto.md`.
 
 ## Estrutura
 
@@ -48,7 +49,7 @@ As etapas opcionais dependem de coleta com pessoas e acrescentam dias ao ciclo. 
 ├── CLAUDE.md / GEMINI.md     importam AGENTS.md
 ├── .claude-plugin/           manifesto de plugin do Claude Code
 ├── gemini-extension.json     manifesto de extensão do Gemini CLI
-├── skills/                   12 skills (SKILL.md + assets/)
+├── skills/                   13 skills (SKILL.md + assets/)
 ├── agents/                   6 agentes
 ├── templates/                modelos de artefato (fonte única)
 ├── iniciativas/              artefatos por iniciativa; inclui um exemplo fictício completo
@@ -68,6 +69,13 @@ Exemplo de solicitação inicial:
 ```text
 Inicie a iniciativa "portal-fornecedores" com as transcrições em
 iniciativas/portal-fornecedores/00-insumos/, na trilha expressa, e execute o Módulo 1.
+```
+
+Para um ajuste pequeno:
+
+```text
+Use a trilha pocket: os usuários clicam nos horários ocupados da grade e nada acontece.
+Evidência: 21% das sessões com dead click nessa tela, segundo o Clarity.
 ```
 
 Referência de preenchimento: [iniciativas/exemplo-reserva-salas](iniciativas/exemplo-reserva-salas/README.md).
