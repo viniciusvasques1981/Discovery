@@ -1,26 +1,43 @@
-# Etapa 3B — Árvore de Oportunidades
+# Módulo 4 — Feature Frames: sincronizacao-fabricacao-canteiro
 
-## Dor central
+> Simulação fictícia. As decisões e evidências abaixo são ilustrativas e não representam validação com clientes reais.
 
-Baixa sincronização entre fábrica e canteiro, resultando em retrabalho, atrasos e perdas por indisponibilidade de materiais.
+## Feature Frame 01 — Painel de Sincronização Fábrica x Canteiro
 
-## Oportunidades
+**Contexto:** planejamento e execução são geridos em sistemas distintos e pouco integrados.  
+**Problema:** equipes não têm uma visão compartilhada e atualizada do cronograma, da liberação de elementos e do status operacional.  
+**Solução:** painel gerencial com leitura consolidada da sincronização entre fábrica e canteiro e acesso ao status por frente.  
+**Limites:** não substitui todas as fontes de dados; MVP prioriza ingestão seletiva e visualização de informações disponíveis.  
+**Evidências:** E001, E006, E009, E020
 
-- Integrar cronograma de produção e cronograma de execução em uma visão única.
-- Exibir impacto de alteração de projeto antes da liberação para campo.
-- Unificar o rastreio de componentes, formas e gabaritos.
-- Balancear equipes por disponibilidade de materiais e sequência lógica de montagem.
+## Feature Frame 02 — Impacto de Alterações de Projeto
 
-## Soluções comparadas
+**Contexto:** alterações de projeto podem afetar a sequência de execução e demandam coordenação manual.  
+**Problema:** mudanças podem não chegar a tempo às equipes de campo.  
+**Solução:** destacar alterações registradas e seus impactos conhecidos em cronograma, materiais e frentes afetadas.  
+**Limites:** não prevê alterações não registradas nem automatiza decisões de replanejamento.  
+**Evidências:** E002, E003, E010, E012
 
-| Oportunidade | Benefício | Risco |
-| :--- | :--- | :--- |
-| Visão centralizada de cronograma | alta clareza operacional | integração inicial mais complexa |
-| Impacto de alteração em tempo real | reduz retrabalho | depende de qualidade de dados |
-| Rastreador de componentes | reduz ociosidade | exigem padronização |
-| Balanceador de equipes | melhora produtividade | pode exigir novo processo |
+## Feature Frame 03 — Status de Componentes e Ferramental
 
-## Conclusão fictícia
+**Contexto:** materiais, formas e gabaritos não têm rastreio integrado ao processo de obra.  
+**Problema:** indisponibilidade no momento de uso pode interromper a execução.  
+**Solução:** apresentar o status disponível de componentes, formas e ferramental por frente, condicionado à existência e qualidade dos dados de origem.  
+**Limites:** depende de identificadores consistentes e de atualização das fontes; não inclui otimização automática de estoque.  
+**Evidências:** E004, E005, E017, E018
 
-A solução mais estratégica é começar pelo painel de sincronização e impacto de alterações, complementado pelo rastreio de materiais e ferramental. A otimização do balanceamento de equipes pode entrar em fase seguinte.
+## MVP recomendado
+
+- FF-01: painel de sincronização fábrica × canteiro.
+- FF-02: acompanhamento de alterações de projeto e impactos registrados.
+- FF-03: visualização do status de componentes e ferramental.
+
+## Fora do MVP / decisão necessária
+
+- Previsão avançada de demanda e otimização global de portfólio.
+- Automação completa de logística ou replanejamento.
+- Integração profunda com todos os ERPs e ferramentas de campo.
+- App mobile offline-first, autenticação RBAC, captura fotográfica obrigatória e fila de sincronização: propostos na arquitetura de interface recebida, mas ainda sem Feature Frame/decisão de escopo.
+- Gestão executiva de roadmap e roster de squad: confirmar se pertencem ao produto ou são conteúdo interno de governança.
+- Indicadores com metas numéricas, como “80 → 15” e “turnover -20%”: valores de exemplo; não tratados como baseline ou meta validada.
 
