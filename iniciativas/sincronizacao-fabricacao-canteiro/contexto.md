@@ -1,29 +1,60 @@
-# Base de Evidências: sincronizacao-fabricacao-canteiro
+# Contexto: sincronizacao-fabricacao-canteiro
 
-> Fatos e declarações extraídos dos insumos, cada um com a linha de origem. A base de evidências é a única fonte consultada pelos módulos seguintes.
+> Índice de decisões da iniciativa. Conteúdo de demonstração fictícia; nenhuma aprovação ou validação com usuários reais está registrada.
 
-**Insumos processados:** ver `00-insumos/transcricao-imersao.md`
+| | |
+| :--- | :--- |
+| **Slug** | `sincronizacao-fabricacao-canteiro` |
+| **Sponsor** | Não informado (papéis citados no cenário: gestão de operações e direção industrial) |
+| **Trilha** | Completa (simulação) |
+| **Módulo atual** | 5 — Prototipação; aguardando revisão/aprovação humana |
+| **Última atualização** | 2026-11-16 |
 
-| ID | Evidência | Tipo | Fonte | Ref |
-| :--- | :--- | :--- | :--- | :--- |
-| E001 | O planejamento de fabricação e a execução da montagem operam em sistemas separados, com comunicação dependente de planilhas e reuniões manuais. | Declaração | Roteiro de entrevista / workshop | D1:L01-L05 |
-| E002 | Alterações de projeto geram atraso na liberação de formas e gabaritos e afetam o cronograma das frentes de trabalho. | Relato | Roteiro de entrevista | D1:L06-L10 |
-| E003 | O controle dos impactos de alterações de projeto é feito de forma manual, sem atualização imediata para a execução no canteiro. | Declaração | Roteiro de entrevista | D1:L09-L12 |
-| E004 | A variedade de modelos de formas e gabaritos customizados eleva o custo de setup fabril e o espaço de armazenamento em estoque. | Dado | Roteiro de entrevista | D1:L15-L18 |
-| E005 | Falta de componentes gera paradas intermitentes, reduz produtividade e aumenta ociosidade e turnover das equipes especializadas. | Relato | Roteiro de entrevista | D1:L19-L23 |
-| E006 | Dados operacionais como cronograma de produção, controle de materiais e sequência de montagem ainda estão em planilhas manuais. | Dado | Roteiro de entrevista | D2:L01-L06 |
-| E007 | O ERP e bases relacionais existem, mas a integração com o canteiro e o planejamento operacional ainda é incompleta. | Restrição | Roteiro de entrevista | D2:L07-L10 |
-| E008 | A confiabilidade e frequência de atualização das bases de dados é heterogênea: dados da fábrica são mais confiáveis que dados de campo em tempo real. | Declaração | Roteiro de entrevista | D2:L11-L14 |
-| E009 | O fluxo da demanda do projeto até a entrega no canteiro é fragmentado e atravessado por silos informacionais. | Declaração | Workshop | W1:L01-L04 |
-| E010 | Retrabalho manual e interpretação inconsistentes de dados aumentam a fricção entre planejamento e execução. | Relato | Workshop | W1:L05-L08 |
-| E011 | O objetivo macro é reduzir desembolso, melhorar qualidade e aumentar previsibilidade operacional. | Decisão | Workshop | W2:L01-L04 |
-| E012 | As alavancas de valor incluem sequenciamento de formas, balanceamento de equipes e redução de retrabalho. | Decisão | Workshop | W2:L05-L09 |
-| E013 | O MVP deve priorizar redução de variações de formas e impacto do turnover com base em dados operacionais. | Pedido | Workshop | W2:L10-L14 |
-| E014 | O painel de dados do MVP deve incluir inventário de planilhas e estruturas SQL disponíveis para ingestão. | Pedido | Workshop | W3:L01-L05 |
-| E015 | O escopo do MVP deve ser definido com clareza para evitar scope creep e expansão descontrolada. | Decisão | Workshop | W3:L06-L09 |
-| E016 | A principal ruptura está no handoff entre planejamento da fabricação e execução no canteiro. | Declaração | Roteiro de entrevista | D1:L01-L04 |
-| E017 | Há baixa visibilidade do status real de componentes e materiais no ponto de uso. | Declaração | Workshop | W1:L09-L12 |
-| E018 | O sequenciamento de formas e o balanceamento de equipes são alavancas críticas para reduzir perdas operacionais. | Decisão | Workshop | W2:L05-L09 |
-| E019 | Os dados de campo têm menor confiabilidade e menor frequência de atualização do que os dados de fábrica. | Declaração | Roteiro de entrevista | D2:L11-L14 |
-| E020 | O foco do produto é a visibilidade, sincronização e rastreabilidade do fluxo de trabalho entre fábrica e obra. | Esboço | Workshop | W3:L10-L14 |
+## 1–2. Por quê
+
+- **Propósito:** melhorar a sincronização entre planejamento fabril e execução no canteiro.
+- **Visão de Produto:** proposta fictícia de visibilidade e rastreabilidade do fluxo operacional fábrica–obra.
+- **Dores do cenário simulado:** falhas de sincronização, mudanças com impacto no cronograma, indisponibilidade de componentes e dependência de planilhas.
+- **OKRs:** metas e baselines numéricos não confirmados; consultar `02-estrategia.md` e validar antes de uso.
+- **Restrições:** integração de fontes incompleta; qualidade/frequência de dados de campo precisam de validação.
+- **Hipóteses:** resultados fictícios; não tratados como validação real.
+- **Detalhes:** `evidencias.md`, `01-discovery.md`, `02-estrategia.md`
+
+## 3–4. Usuário e escopo
+
+- **Protopersonas:** gestor de operações e coordenador de obra, no cenário fictício.
+- **Jornada To-Be:** consultar sincronização; investigar impacto; acompanhar componentes.
+- **MVP registrado:** FF-01 painel de sincronização; FF-02 impacto de alterações; FF-03 status de componentes/ferramental.
+- **Fora do MVP / pendente:** app offline-first, RBAC, fotos obrigatórias, notificações imediatas, gestão de roster/roadmap e metas numéricas de exemplo, até decisão de escopo.
+- **Ressalvas:** padronização de identificadores, qualidade dos dados e governança das integrações.
+- **Detalhes:** `03-modelagem.md`, `04-feature-frames.md`
+
+## 5. Interface
+
+- **Telas:** dashboard gerencial T-01 a T-03; app operacional proposto T-04 a T-09, com itens fora do escopo atual marcados como pendentes.
+- **Design System:** não fornecido; tokens provisórios documentados.
+- **Teste de usabilidade:** há um roteiro/resultado de simulação fictícia; não equivale a teste com usuários reais.
+- **Decisões em aberto:** escopo do app, dados/indicadores, privacidade de fotos, offline e integrações.
+- **Detalhes:** `05-prototipacao.md`
+
+## 6. Handoff
+
+- **Status:** não avançar até revisão do escopo e aprovação humana dos módulos pendentes.
+- **Instrumentação e pendências técnicas:** consultar `06-handoff.md`; itens de integração e offline não estão validados.
+
+## 7–8. Pós-entrega
+
+- **Status:** planos fictícios, sem dados reais de produção.
+- **Detalhes:** `07-diagnostico-comportamental.md`, `08-experimentos.md`
+
+## Dúvidas abertas
+
+| # | Dúvida | Quem pode responder |
+| :--- | :--- | :--- |
+| D1 | Dashboard e App Operacional entram ambos no MVP? | Sponsor / Product Manager |
+| D2 | RBAC, multi-tenancy, offline e fila de sincronização estão aprovados? | Tech Lead / Segurança |
+| D3 | Captura fotográfica é necessária, por quanto tempo os arquivos serão retidos e quem terá acesso? | Sponsor / Privacidade / Segurança |
+| D4 | Quais são as fontes, campos, frequência e critérios de qualidade para cada indicador? | Operações / TI |
+| D5 | Os exemplos de metas (formas 80→15, turnover -20%) são apenas ilustrativos ou foram aprovados com baseline? | Sponsor |
+| D6 | Qual Design System e stack devem ser adotados? | Product Designer / Tech Lead |
 
