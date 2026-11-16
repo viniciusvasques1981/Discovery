@@ -192,7 +192,7 @@ def validate() -> int:
         elif len(desc) > 1024:
             errors.append(f"{folder.name}: description com {len(desc)} caracteres (máx. 1024)")
         body = skill_md.read_text(encoding="utf-8")
-        for sub in ("assets", "scripts"):
+        for sub in ("assets", "scripts", "references"):
             for ref in re.findall(rf"`{sub}/([^`\s]+)", body):
                 if not (folder / sub / ref).exists():
                     errors.append(f"{folder.name}: referência a {sub}/{ref} inexistente")

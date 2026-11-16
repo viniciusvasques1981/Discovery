@@ -100,6 +100,7 @@ Cada skill que precisa de script leva uma cópia em `scripts/`, dentro da própr
 
 | Comando | Função |
 | :--- | :--- |
+| `iniciativa.py inventariar <dir>` | Relaciona os originais e os textos citáveis; lista o que falta converter e validar |
 | `iniciativa.py numerar <dir>` | Numera as linhas dos insumos |
 | `iniciativa.py citar <dir> --evidencias` | Mostra cada evidência ao lado das linhas de origem |
 | `iniciativa.py montar <dir>` | Preenche os blocos derivados do handoff |

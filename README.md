@@ -11,6 +11,7 @@ Tabela gerada a partir de `esteira.json`.
 <!-- gerado:modulos-readme -->
 | Módulo / Etapa | Framework | Entrega principal | Skill | Agente | Artefato |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| 0 — Entrada de insumos | Documentação de insumos | Texto citável de cada material bruto, com origem, método e validação | [`source-intake-documentation`](skills/source-intake-documentation/SKILL.md) | [`source-documentalist`](agents/source-documentalist.md) | `00-insumos/*.md`, `00-insumos/INVENTARIO.md` |
 | 1 — Discovery | Design Thinking (Empatia) | Base de evidências, Matriz CSD e dores validadas | [`discovery-product-strategy`](skills/discovery-product-strategy/SKILL.md) | [`discovery-strategist`](agents/discovery-strategist.md) | `evidencias.md`, `01-discovery.md` |
 | 2 — Estratégia | Golden Circle, Lean UX | Visão de Produto, hipóteses e OKRs | [`discovery-product-strategy`](skills/discovery-product-strategy/SKILL.md) | [`discovery-strategist`](agents/discovery-strategist.md) | `02-estrategia.md` |
 | 2B — Validação de Hipóteses (opcional) | Lean UX | Plano e resultado de validação | [`hypothesis-validation-research`](skills/hypothesis-validation-research/SKILL.md) | [`discovery-strategist`](agents/discovery-strategist.md) | `02b-validacao-hipoteses.md` |
@@ -82,7 +83,7 @@ A separação padrão é na entrada do Módulo 4. Produtos sem usuário nem jorn
 ## Uso
 
 1. Instale conforme a plataforma: [docs/instalacao.md](docs/instalacao.md).
-2. Crie `iniciativas/<slug>/` e coloque o material bruto em `00-insumos/`.
+2. Crie `iniciativas/<slug>/`. Coloque textos e transcrições em `00-insumos/` e o que não está em texto (gravações, imagens, PDFs, exportações de protótipo ou de board) em `00-insumos/originais/`; a Etapa 0 converte esse material em texto citável.
 3. Acione a skill `esteira-orchestration`, ou a skill do módulo desejado.
 4. Ao fim de cada módulo, um script confere o artefato e uma pessoa aprova. Ao fim dos módulos 2, 4, 6 e 8, um agente revisor independente confere a sustentação das afirmações. O arquivo `contexto.md` carrega as decisões para o módulo seguinte.
 

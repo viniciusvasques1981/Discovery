@@ -6,7 +6,9 @@ Relação entre os módulos do [Guia da Esteira](guia-da-esteira.md), as skills,
 
 ```mermaid
 flowchart LR
-    I[00-insumos] --> M1[1 Discovery]
+    O[originais: áudio, vídeo, imagens, documentos, protótipos, boards] --> E0[0 Entrada de insumos]
+    E0 --> I[00-insumos: texto citável]
+    I --> M1[1 Discovery]
     M1 --> M2[2 Estratégia]
     M2 --> M3[3 Modelagem]
     M2 -.-> V2[2B Validação de Hipóteses]
@@ -33,6 +35,7 @@ Tabela gerada a partir de `esteira.json`.
 <!-- gerado:modulos-mapa -->
 | Módulo / Etapa | Framework | Entrega principal | Skill | Agente | Artefato |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| 0 — Entrada de insumos | Documentação de insumos | Texto citável de cada material bruto, com origem, método e validação | [`source-intake-documentation`](../skills/source-intake-documentation/SKILL.md) | [`source-documentalist`](../agents/source-documentalist.md) | `00-insumos/*.md`, `00-insumos/INVENTARIO.md` |
 | 1 — Discovery | Design Thinking (Empatia) | Base de evidências, Matriz CSD e dores validadas | [`discovery-product-strategy`](../skills/discovery-product-strategy/SKILL.md) | [`discovery-strategist`](../agents/discovery-strategist.md) | `evidencias.md`, `01-discovery.md` |
 | 2 — Estratégia | Golden Circle, Lean UX | Visão de Produto, hipóteses e OKRs | [`discovery-product-strategy`](../skills/discovery-product-strategy/SKILL.md) | [`discovery-strategist`](../agents/discovery-strategist.md) | `02-estrategia.md` |
 | 2B — Validação de Hipóteses (opcional) | Lean UX | Plano e resultado de validação | [`hypothesis-validation-research`](../skills/hypothesis-validation-research/SKILL.md) | [`discovery-strategist`](../agents/discovery-strategist.md) | `02b-validacao-hipoteses.md` |
@@ -58,6 +61,22 @@ Componentes transversais:
 | Painel de perspectivas | Skill | Painel de 3 a 5 pontos de vista para decisões | [`get-more-perspectives`](../skills/get-more-perspectives/SKILL.md) | — |
 | Estilo de escrita | Skill | Aplica o estilo de escrita do usuário a textos de comunicação | [`match-my-writing-style`](../skills/match-my-writing-style/SKILL.md) | — |
 <!-- /gerado:transversais-mapa -->
+
+## Etapa 0: entrada de insumos
+
+Converte o material que não está em texto em arquivos citáveis, um por original. Uma única skill reúne cinco guias, e apenas o guia do tipo em mãos é aberto.
+
+| Material | Guia | Tipo de evidência no Módulo 1 |
+| :--- | :--- | :--- |
+| PDF, Word, apresentações, planilhas | `references/documentos.md` | Conforme o conteúdo: Dado, Restrição ou Decisão |
+| Áudio e vídeo | `references/audio-video.md` | Declaração ou Relato |
+| Wireframes e desenhos de tela | `references/wireframes.md` | Esboço |
+| Protótipos no Figma, no Paper e no Penpot | `references/prototipos.md` | Protótipo |
+| Boards do Miro e semelhantes | `references/miro.md` | Nota de dinâmica |
+
+Cada arquivo convertido traz no cabeçalho a origem, o método e a situação de validação. `iniciativa.py inventariar` gera o inventário a partir desses cabeçalhos e lista os originais ainda sem texto. Conversão não validada por uma pessoa sustenta apenas Suposições, e o script de verificação avisa enquanto houver pendência.
+
+A capacidade de processar áudio, vídeo e imagem depende do modelo e da plataforma. Onde ela não existe, a skill instrui o agente a dizer isso e pedir a transcrição ou a exportação, em vez de simular a conversão.
 
 ## Trilha pocket
 
@@ -156,6 +175,7 @@ Aplicação:
 | Orquestração | Skill | Dialoga com o usuário e delega a agentes. Era agente na primeira versão; foi convertida |
 | Trilha pocket | Skill | Insumo pequeno e diálogo direto com o solicitante; um contexto separado só acrescentaria custo |
 | Revisão de artefatos | Skill + agente | O método é a skill; a independência exige o contexto separado do agente |
+| `source-documentalist` | Agente | Processa gravações, imagens e documentos volumosos, um por vez, fora da conversa principal |
 | `discovery-strategist`, `growth-analyst` | Agente | Processam transcrições e telemetria volumosas |
 | `handoff-tech-lead` | Agente | Atua em dois módulos, e a checagem de viabilidade se beneficia de visão separada da de produto |
 | Checagem de viabilidade | Skill própria | Era uma seção da skill de handoff; separada para que o Módulo 4 não carregue o método do Módulo 6 |
@@ -228,6 +248,7 @@ Acréscimos que não constam no guia:
 | Aprovador por módulo | `contexto.md` | Sim |
 | Criação de issues e resumo do Clarity por script | `scripts/` | Não |
 | Iniciativa de exemplo | `iniciativas/exemplo-reserva-salas/` | — |
+| Etapa 0: entrada de insumos em áudio, vídeo, imagem, documento, protótipo e board | `source-intake-documentation` | Quando há material que não está em texto |
 | Trilha pocket para ajustes pequenos | `pocket-feature-frame` | Alternativa às demais trilhas |
 | Vários produtos por imersão: partilha, derivação, interface e vizinhança | `cross-product-alignment`, `scripts/iniciativa.py` | Quando a imersão origina mais de um produto |
 

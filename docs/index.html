@@ -187,6 +187,14 @@ footer{border-top:1px solid var(--rule);margin-top:clamp(3rem,7vw,5rem);padding:
 footer b{color:var(--ink);font-size:1.1rem}
 footer ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
 </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zek1nxdzc3");
+</script>
 </head>
 <body>
 <header class="site-header">
@@ -221,7 +229,7 @@ footer ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem
         <span class="rl">Do material bruto da imersão ao handoff técnico</span>
       </h1>
       <p class="sub">Um conjunto de agentes e skills de IA que conduz uma iniciativa de produto em módulos encadeados. Cada módulo recebe o resumo do anterior, para que o propósito definido com o sponsor chegue intacto aos critérios de aceite e ao assistente de código.</p>
-      <p class="proof"><span><b>15</b> skills</span><span><b>6</b> agentes</span><span><b>3</b> trilhas</span><span><b>8</b> módulos</span><span>Claude Code · Gemini CLI · Copilot</span></p>
+      <p class="proof"><span><b>16</b> skills</span><span><b>7</b> agentes</span><span><b>3</b> trilhas</span><span><b>8</b> módulos</span><span>Claude Code · Gemini CLI · Copilot</span></p>
       <div class="btns">
         <a class="btn primary" href="https://github.com/viniciusvasques1981/Discovery" target="_blank" rel="noopener">Ver o repositório</a>
         <a class="btn" href="#uso">Como usar</a>
@@ -319,6 +327,13 @@ footer ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem
       </div>
 
       <ol class="journey">
+        <li>
+          <div class="stop">
+            <div><h3><small>0</small>Entrada de insumos</h3><p>Converte o que a imersão produziu em texto citável: documentos, gravações de áudio e vídeo, wireframes, protótipos do Figma, do Paper e do Penpot e boards do Miro. Cada conversão registra origem, método e se uma pessoa já validou.</p></div>
+            <div class="chips"><span class="chip dot">Texto citável</span><span class="chip">INVENTARIO.md</span></div>
+            <p class="who">Agente <code>source-documentalist</code> · necessária quando há material que não está em texto</p>
+          </div>
+        </li>
         <li>
           <div class="stop">
             <div><h3><small>1</small>Discovery</h3><p>Lê o material bruto uma única vez e extrai a base de evidências. A partir dela, organiza Certezas, Suposições e Dúvidas, lista as dores e identifica dados pessoais envolvidos.</p></div>
@@ -547,7 +562,7 @@ python3 scripts/esteira.py package</pre></div>
         <li>
           <h3><small>Passo 2</small>Abra a iniciativa</h3>
           <div>
-            <p>Crie a pasta <code>iniciativas/&lt;slug&gt;/</code> e coloque transcrições, notas e documentos em <code>00-insumos/</code>. Essa pasta fica fora do versionamento, porque o material de imersão pode ser confidencial.</p>
+            <p>Crie a pasta <code>iniciativas/&lt;slug&gt;/</code>. Textos e transcrições vão em <code>00-insumos/</code>; gravações, imagens, PDFs e exportações de protótipo ou de board vão em <code>00-insumos/originais/</code> e são convertidos na etapa de entrada. A pasta fica fora do versionamento, porque o material de imersão pode ser confidencial.</p>
           </div>
         </li>
         <li>
@@ -592,6 +607,7 @@ python3 scripts/criar_issues.py iniciativas/&lt;slug&gt;/06-handoff.md --repo do
         <div>
           <h3>Skills de processo</h3>
           <ul>
+            <li>source-intake-documentation<span>Etapa 0: entrada de insumos</span></li>
             <li>discovery-product-strategy<span>Módulos 1 e 2</span></li>
             <li>hypothesis-validation-research<span>Etapa 2B</span></li>
             <li>behavioral-modeling-feature-framing<span>Módulos 3 e 4, etapa 3B</span></li>
@@ -617,6 +633,7 @@ python3 scripts/criar_issues.py iniciativas/&lt;slug&gt;/06-handoff.md --repo do
         <div>
           <h3>Agentes</h3>
           <ul>
+            <li>source-documentalist<span>Entrada de insumos</span></li>
             <li>discovery-strategist<span>Discovery e estratégia</span></li>
             <li>experience-modeler<span>Modelagem e Feature Frame</span></li>
             <li>interface-designer<span>Prototipação</span></li>
@@ -642,7 +659,7 @@ python3 scripts/criar_issues.py iniciativas/&lt;slug&gt;/06-handoff.md --repo do
         </article>
         <article class="card">
           <h3>Depende do material bruto</h3>
-          <p>Uma reunião mal conduzida ou mal transcrita produz uma Matriz CSD fraca, e os módulos seguintes herdam o defeito.</p>
+          <p>Uma reunião mal conduzida ou mal transcrita produz uma Matriz CSD fraca. A leitura de imagens, boards e gravações varia conforme o modelo e precisa de validação humana.</p>
         </article>
         <article class="card">
           <h3>Ainda é uma hipótese de processo</h3>

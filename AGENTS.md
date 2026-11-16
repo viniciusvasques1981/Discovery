@@ -9,6 +9,7 @@ Tabela gerada a partir de `esteira.json`. Não editar à mão.
 <!-- gerado:modulos-agents -->
 | Módulo / Etapa | Skill | Agente | Artefato |
 | :--- | :--- | :--- | :--- |
+| 0 — Entrada de insumos | `source-intake-documentation` | `source-documentalist` | `00-insumos/*.md`, `00-insumos/INVENTARIO.md` |
 | 1 — Discovery | `discovery-product-strategy` | `discovery-strategist` | `evidencias.md`, `01-discovery.md` |
 | 2 — Estratégia | `discovery-product-strategy` | `discovery-strategist` | `02-estrategia.md` |
 | 2B — Validação de Hipóteses (opcional) | `hypothesis-validation-research` | `discovery-strategist` | `02b-validacao-hipoteses.md` |
@@ -33,7 +34,7 @@ Trilhas: **pocket** (ajuste pequeno, um documento, sem agentes), **expressa** (m
 ## Regras gerais
 
 1. **Contexto primeiro.** Todo módulo começa lendo `iniciativas/<slug>/contexto.md` e termina atualizando apenas a própria seção desse arquivo, em linhas curtas.
-2. **Leitura mínima.** Cada skill lista suas entradas; não ler outros arquivos. O material bruto em `00-insumos/` é lido uma única vez, no Módulo 1. Depois disso, a fonte é `evidencias.md`.
+2. **Leitura mínima.** Cada skill lista suas entradas; não ler outros arquivos. Material que não está em texto é convertido na Etapa 0, um original por vez. O material bruto em `00-insumos/` é lido uma única vez, no Módulo 1. Depois disso, a fonte é `evidencias.md`.
 3. **Fato e inferência.** Toda afirmação cita a evidência que a sustenta (E001…). O que vai além recebe `[inferência]`. Dado ausente não é estimado: registrar como Dúvida, `[pendente de dados]`, `[não validada]` ou `[a validar com o time técnico]`.
 4. **Nada simulado.** Entrevistas, sessões de teste, dados de uso e resultados de experimento são informados pelo usuário. Agentes planejam e registram.
 5. **Escrever uma vez.** Out of Scope é escrito no Feature Frame e chega ao handoff por script (`iniciativa.py montar`). Não copiar conteúdo de um artefato para outro.
@@ -49,7 +50,7 @@ Os caminhos `assets/` e `scripts/` citados nas skills são relativos à pasta da
 
 ```text
 iniciativas/<slug>/
-├── 00-insumos/            material bruto; numerados/ é gerado por script
+├── 00-insumos/            textos citáveis; originais/ guarda gravações, imagens e documentos; numerados/ e INVENTARIO.md são gerados por script
 ├── evidencias.md          base de evidências, com referência de linha
 ├── contexto.md            índice de decisões, uma seção curta por módulo
 ├── aprovacoes.md          aprovações, etapas opcionais e alterações

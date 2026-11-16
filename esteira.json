@@ -2,6 +2,25 @@
   "_comentario": "Fonte única da esteira. As tabelas de módulos em AGENTS.md, README.md, docs/mapa-da-esteira.md e na skill de orquestração são geradas a partir deste arquivo por `python3 scripts/esteira.py sync`. Não edite as tabelas à mão.",
   "modulos": [
     {
+      "id": "0",
+      "nome": "Entrada de insumos",
+      "opcional": false,
+      "framework": "Documentação de insumos",
+      "entrega": "Texto citável de cada material bruto, com origem, método e validação",
+      "skills": [
+        "source-intake-documentation"
+      ],
+      "agentes": [
+        "source-documentalist"
+      ],
+      "artefatos": [
+        "00-insumos/*.md",
+        "00-insumos/INVENTARIO.md"
+      ],
+      "aprovador": "Product Manager",
+      "revisao": false
+    },
+    {
       "id": "1",
       "nome": "Discovery",
       "opcional": false,
@@ -390,6 +409,14 @@
       "scripts": [
         "iniciativa.py"
       ]
+    },
+    "source-intake-documentation": {
+      "assets": [
+        "insumo-derivado.md"
+      ],
+      "scripts": [
+        "iniciativa.py"
+      ]
     }
   },
   "modelos": {
@@ -400,7 +427,8 @@
       "interface-designer": "padrao",
       "handoff-tech-lead": "padrao",
       "growth-analyst": "padrao",
-      "artifact-reviewer": "padrao"
+      "artifact-reviewer": "padrao",
+      "source-documentalist": "padrao"
     },
     "plataformas": {
       "claude": {

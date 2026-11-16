@@ -141,6 +141,7 @@ O texto acima reproduz o guia original. O repositório acrescenta:
 
 | Acréscimo | Tipo | Impacto no cronograma de 2 dias |
 | :---- | :---- | :---- |
+| Etapa 0 — Entrada de insumos (áudio, vídeo, imagens, documentos, protótipos e boards) | Quando há material que não está em texto | Depende do volume; pode ocorrer durante a imersão |
 | Módulo 7 — Medição e Módulo 8 — Experimentação | Ciclo pós-entrega | Nenhum: ocorrem após a entrega |
 | Etapa 2B — Validação de Hipóteses | Opcional | Dias; ocorre fora da imersão |
 | Etapa 3B — Árvore de Oportunidades | Opcional | Horas |

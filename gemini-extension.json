@@ -1,6 +1,6 @@
 {
   "name": "esteira-produto",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "Agentes e skills da Esteira de Produto AI-Enhanced: Discovery, Estratégia, Modelagem, Feature Frame, Prototipação, Handoff técnico, Medição e Experimentação, com etapas opcionais de validação e revisão independente dos artefatos.",
   "contextFileName": "AGENTS.md"
 }

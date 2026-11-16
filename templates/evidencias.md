@@ -6,7 +6,7 @@
 
 | ID | Evidência | Tipo | Fonte | Ref |
 | :--- | :--- | :--- | :--- | :--- |
-| E001 | [afirmação fiel ao insumo, em uma frase, sem interpretação] | Dado / Declaração / Relato / Restrição / Decisão / Pedido | [quem disse ou qual documento] | D1:L0001 |
+| E001 | [afirmação fiel ao insumo, em uma frase, sem interpretação] | Dado / Declaração / Relato / Restrição / Decisão / Pedido / Esboço / Protótipo / Nota de dinâmica | [quem disse ou qual documento] | D1:L0001 |
 
 Tipos:
 
@@ -16,3 +16,6 @@ Tipos:
 - **Restrição:** limite técnico, contratual, de prazo ou de conformidade.
 - **Decisão:** definição já tomada por quem tem autoridade.
 - **Pedido:** funcionalidade ou solução solicitada por um participante.
+- **Esboço:** conteúdo de um wireframe ou desenho de tela trazido à imersão.
+- **Protótipo:** conteúdo de um protótipo feito em ferramenta de design (Figma, Paper, Penpot).
+- **Nota de dinâmica:** post-it ou item de um board de dinâmica.
