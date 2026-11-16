@@ -34,6 +34,7 @@ Componentes transversais:
 | Revisão independente | Skill + agente | Confere a origem das afirmações ao fim de cada bloco (módulos 2, 4, 6 e 8) | [`artifact-evidence-review`](skills/artifact-evidence-review/SKILL.md) | [`artifact-reviewer`](agents/artifact-reviewer.md) |
 | Ajuste pequeno (trilha pocket) | Skill | Ajuste pequeno em um único documento curto | [`pocket-feature-frame`](skills/pocket-feature-frame/SKILL.md) | — |
 | Orquestração | Skill | Define a trilha, delega cada módulo, aciona verificação e revisão e registra as aprovações | [`esteira-orchestration`](skills/esteira-orchestration/SKILL.md) | — |
+| Alinhamento entre produtos | Skill | Em imersões com mais de um produto: publica a interface do produto, lê a dos vizinhos e trata dependências e sobreposições | [`cross-product-alignment`](skills/cross-product-alignment/SKILL.md) | — |
 | Painel de perspectivas | Skill | Painel de 3 a 5 pontos de vista para decisões | [`get-more-perspectives`](skills/get-more-perspectives/SKILL.md) | — |
 | Estilo de escrita | Skill | Aplica o estilo de escrita do usuário a textos de comunicação | [`match-my-writing-style`](skills/match-my-writing-style/SKILL.md) | — |
 <!-- /gerado:transversais-readme -->
@@ -47,6 +48,19 @@ Componentes transversais:
 | **Completa** | Módulos 1 a 6 com as etapas 2B, 3B e 5B | Problema novo, hipóteses de risco alto, fluxo crítico |
 
 A trilha pocket tem uma triagem de sete critérios; um "Não" encaminha a demanda para a trilha expressa. As etapas opcionais dependem de coleta com pessoas e acrescentam dias ao ciclo. Quando não executadas, o risco aceito fica registrado em `contexto.md`.
+
+## Vários produtos da mesma imersão
+
+Uma imersão pode originar mais de um produto. A imersão tem repositório próprio, com as evidências, a Matriz CSD e a estratégia; cada produto segue em seu repositório.
+
+| Etapa | Onde | Resultado |
+| :--- | :--- | :--- |
+| Módulos 1 e 2 | Repositório da imersão | Origem comum, Visão e OKRs por produto, mapa de partilha |
+| Módulo 3 | Repositório da imersão (padrão) | Jornada conjunta, com produto dono em cada estágio |
+| Derivação | `iniciativa.py derivar` | Instância do produto, com os artefatos herdados |
+| Módulos 4 a 8 | Repositório de cada produto | Escopo, interface e handoff próprios |
+
+A separação padrão é na entrada do Módulo 4. Produtos sem usuário nem jornada em comum podem se separar na entrada do Módulo 3. Depois de separados, cada produto publica um `interface.md` gerado por script, e `iniciativa.py vizinhos` cruza dependências, sobreposições e vocabulário entre eles. Detalhes em [docs/mapa-da-esteira.md](docs/mapa-da-esteira.md).
 
 ## Estrutura
 

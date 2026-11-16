@@ -23,6 +23,7 @@ Tabela gerada a partir de `esteira.json`. Não editar à mão.
 | Revisão independente | `artifact-evidence-review` | `artifact-reviewer` | `revisoes.md` |
 | Ajuste pequeno (trilha pocket) | `pocket-feature-frame` | — | `ajustes/AJ-NN-<slug>.md` |
 | Orquestração | `esteira-orchestration` | — | `contexto.md`, `aprovacoes.md` |
+| Alinhamento entre produtos | `cross-product-alignment` | — | `interface.md`, `vizinhos/` |
 | Painel de perspectivas | `get-more-perspectives` | — | — |
 | Estilo de escrita | `match-my-writing-style` | — | — |
 <!-- /gerado:modulos-agents -->
@@ -39,7 +40,8 @@ Trilhas: **pocket** (ajuste pequeno, um documento, sem agentes), **expressa** (m
 6. **Script antes de modelo.** Conferências mecânicas são feitas por `iniciativa.py verificar`, ao fim de cada módulo. A revisão independente ocorre ao fim dos módulos 2, 4, 6 e 8.
 7. **Aprovação humana.** Um módulo por vez; uma pessoa aprova antes do avanço. Nenhum agente registra aprovação em nome do usuário.
 8. **Resposta curta.** Um agente devolve à conversa principal um resumo de até dez linhas e o caminho do artefato, não o conteúdo.
-9. **Formato.** Artefatos em português do Brasil, em Markdown, seguindo o modelo em `assets/` da skill. Gherkin com `# language: pt`.
+9. **Vários produtos.** Quando a imersão origina mais de um produto, a iniciativa da imersão é o tronco e cada produto é derivado dela para o próprio repositório (`iniciativa.py derivar`). Artefatos herdados não são alterados no produto. Um produto lê do outro apenas o `interface.md`.
+10. **Formato.** Artefatos em português do Brasil, em Markdown, seguindo o modelo em `assets/` da skill. Gherkin com `# language: pt`.
 
 Os caminhos `assets/` e `scripts/` citados nas skills são relativos à pasta da skill. Neste repositório, os mesmos scripts também estão em `scripts/`, na raiz.
 
@@ -53,6 +55,8 @@ iniciativas/<slug>/
 ├── aprovacoes.md          aprovações, etapas opcionais e alterações
 ├── revisoes.md            pareceres da revisão independente
 ├── 01-discovery.md … 08-experimentos.md
+├── partilha.md             só em imersão com vários produtos: o que cada produto herda
+├── origem.json, interface.md, vizinhos/   só em produto derivado de uma imersão
 └── ajustes/               documentos da trilha pocket
 ```
 

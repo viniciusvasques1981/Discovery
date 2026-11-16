@@ -2,147 +2,395 @@
   "_comentario": "Fonte única da esteira. As tabelas de módulos em AGENTS.md, README.md, docs/mapa-da-esteira.md e na skill de orquestração são geradas a partir deste arquivo por `python3 scripts/esteira.py sync`. Não edite as tabelas à mão.",
   "modulos": [
     {
-      "id": "1", "nome": "Discovery", "opcional": false,
+      "id": "1",
+      "nome": "Discovery",
+      "opcional": false,
       "framework": "Design Thinking (Empatia)",
       "entrega": "Base de evidências, Matriz CSD e dores validadas",
-      "skills": ["discovery-product-strategy"],
-      "agentes": ["discovery-strategist"],
-      "artefatos": ["evidencias.md", "01-discovery.md"],
-      "aprovador": "Sponsor", "revisao": false
+      "skills": [
+        "discovery-product-strategy"
+      ],
+      "agentes": [
+        "discovery-strategist"
+      ],
+      "artefatos": [
+        "evidencias.md",
+        "01-discovery.md"
+      ],
+      "aprovador": "Sponsor",
+      "revisao": false
     },
     {
-      "id": "2", "nome": "Estratégia", "opcional": false,
+      "id": "2",
+      "nome": "Estratégia",
+      "opcional": false,
       "framework": "Golden Circle, Lean UX",
       "entrega": "Visão de Produto, hipóteses e OKRs",
-      "skills": ["discovery-product-strategy"],
-      "agentes": ["discovery-strategist"],
-      "artefatos": ["02-estrategia.md"],
-      "aprovador": "Sponsor", "revisao": true
+      "skills": [
+        "discovery-product-strategy"
+      ],
+      "agentes": [
+        "discovery-strategist"
+      ],
+      "artefatos": [
+        "02-estrategia.md"
+      ],
+      "aprovador": "Sponsor",
+      "revisao": true
     },
     {
-      "id": "2B", "nome": "Validação de Hipóteses", "opcional": true,
+      "id": "2B",
+      "nome": "Validação de Hipóteses",
+      "opcional": true,
       "framework": "Lean UX",
       "entrega": "Plano e resultado de validação",
-      "skills": ["hypothesis-validation-research"],
-      "agentes": ["discovery-strategist"],
-      "artefatos": ["02b-validacao-hipoteses.md"],
-      "aprovador": "Product Manager", "revisao": false
+      "skills": [
+        "hypothesis-validation-research"
+      ],
+      "agentes": [
+        "discovery-strategist"
+      ],
+      "artefatos": [
+        "02b-validacao-hipoteses.md"
+      ],
+      "aprovador": "Product Manager",
+      "revisao": false
     },
     {
-      "id": "3", "nome": "Modelagem", "opcional": false,
+      "id": "3",
+      "nome": "Modelagem",
+      "opcional": false,
       "framework": "UCD",
       "entrega": "Protopersona, Mapa de Empatia e Jornada To-Be",
-      "skills": ["behavioral-modeling-feature-framing"],
-      "agentes": ["experience-modeler"],
-      "artefatos": ["03-modelagem.md"],
-      "aprovador": "Product Manager", "revisao": false
+      "skills": [
+        "behavioral-modeling-feature-framing"
+      ],
+      "agentes": [
+        "experience-modeler"
+      ],
+      "artefatos": [
+        "03-modelagem.md"
+      ],
+      "aprovador": "Product Manager",
+      "revisao": false
     },
     {
-      "id": "3B", "nome": "Árvore de Oportunidades", "opcional": true,
+      "id": "3B",
+      "nome": "Árvore de Oportunidades",
+      "opcional": true,
       "framework": "Opportunity Solution Tree",
       "entrega": "Oportunidades e soluções comparadas",
-      "skills": ["behavioral-modeling-feature-framing"],
-      "agentes": ["experience-modeler"],
-      "artefatos": ["03b-arvore-oportunidades.md"],
-      "aprovador": "Product Manager", "revisao": false
+      "skills": [
+        "behavioral-modeling-feature-framing"
+      ],
+      "agentes": [
+        "experience-modeler"
+      ],
+      "artefatos": [
+        "03b-arvore-oportunidades.md"
+      ],
+      "aprovador": "Product Manager",
+      "revisao": false
     },
     {
-      "id": "4", "nome": "Feature Frame", "opcional": false,
+      "id": "4",
+      "nome": "Feature Frame",
+      "opcional": false,
       "framework": "Feature Frame, Lean Inception",
       "entrega": "Escopo delimitado, viabilidade técnica e recorte de MVP",
-      "skills": ["behavioral-modeling-feature-framing", "technical-feasibility-check"],
-      "agentes": ["experience-modeler", "handoff-tech-lead"],
-      "artefatos": ["04-feature-frames.md"],
-      "aprovador": "Product Manager e Tech Lead", "revisao": true
+      "skills": [
+        "behavioral-modeling-feature-framing",
+        "technical-feasibility-check"
+      ],
+      "agentes": [
+        "experience-modeler",
+        "handoff-tech-lead"
+      ],
+      "artefatos": [
+        "04-feature-frames.md"
+      ],
+      "aprovador": "Product Manager e Tech Lead",
+      "revisao": true
     },
     {
-      "id": "5", "nome": "Prototipação", "opcional": false,
+      "id": "5",
+      "nome": "Prototipação",
+      "opcional": false,
       "framework": "Agile Prototyping",
       "entrega": "Fluxo de telas, componentes e guia de UI",
-      "skills": ["systemic-ui-interaction-design"],
-      "agentes": ["interface-designer"],
-      "artefatos": ["05-prototipacao.md"],
-      "aprovador": "Product Designer", "revisao": false
+      "skills": [
+        "systemic-ui-interaction-design"
+      ],
+      "agentes": [
+        "interface-designer"
+      ],
+      "artefatos": [
+        "05-prototipacao.md"
+      ],
+      "aprovador": "Product Designer",
+      "revisao": false
     },
     {
-      "id": "5B", "nome": "Teste de Usabilidade", "opcional": true,
+      "id": "5B",
+      "nome": "Teste de Usabilidade",
+      "opcional": true,
       "framework": "Teste baseado em tarefas",
       "entrega": "Roteiro, achados e ajustes",
-      "skills": ["prototype-usability-testing"],
-      "agentes": ["interface-designer"],
-      "artefatos": ["05b-teste-usabilidade.md"],
-      "aprovador": "Product Designer", "revisao": false
+      "skills": [
+        "prototype-usability-testing"
+      ],
+      "agentes": [
+        "interface-designer"
+      ],
+      "artefatos": [
+        "05b-teste-usabilidade.md"
+      ],
+      "aprovador": "Product Designer",
+      "revisao": false
     },
     {
-      "id": "6", "nome": "Handoff", "opcional": false,
+      "id": "6",
+      "nome": "Handoff",
+      "opcional": false,
       "framework": "Agile Handoff",
       "entrega": "Issues, BDD, plano de instrumentação e System Prompt",
-      "skills": ["technical-handoff-prompt-engineering"],
-      "agentes": ["handoff-tech-lead"],
-      "artefatos": ["06-handoff.md"],
-      "aprovador": "Tech Lead", "revisao": true
+      "skills": [
+        "technical-handoff-prompt-engineering"
+      ],
+      "agentes": [
+        "handoff-tech-lead"
+      ],
+      "artefatos": [
+        "06-handoff.md"
+      ],
+      "aprovador": "Tech Lead",
+      "revisao": true
     },
     {
-      "id": "7", "nome": "Medição", "opcional": false,
+      "id": "7",
+      "nome": "Medição",
+      "opcional": false,
       "framework": "Heurísticas de usabilidade",
       "entrega": "Diagnóstico comportamental e correções de UX",
-      "skills": ["behavioral-analytics-ux-fixes"],
-      "agentes": ["growth-analyst"],
-      "artefatos": ["07-diagnostico-comportamental.md"],
-      "aprovador": "Product Manager", "revisao": false
+      "skills": [
+        "behavioral-analytics-ux-fixes"
+      ],
+      "agentes": [
+        "growth-analyst"
+      ],
+      "artefatos": [
+        "07-diagnostico-comportamental.md"
+      ],
+      "aprovador": "Product Manager",
+      "revisao": false
     },
     {
-      "id": "8", "nome": "Experimentação", "opcional": false,
+      "id": "8",
+      "nome": "Experimentação",
+      "opcional": false,
       "framework": "Experimentação A/B/n",
       "entrega": "Plano de experimento com métricas guardiãs",
-      "skills": ["behavioral-experimentation-cro"],
-      "agentes": ["growth-analyst"],
-      "artefatos": ["08-experimentos.md"],
-      "aprovador": "Product Manager", "revisao": true
+      "skills": [
+        "behavioral-experimentation-cro"
+      ],
+      "agentes": [
+        "growth-analyst"
+      ],
+      "artefatos": [
+        "08-experimentos.md"
+      ],
+      "aprovador": "Product Manager",
+      "revisao": true
     }
   ],
   "transversais": [
     {
-      "nome": "Revisão independente", "tipo": "Skill + agente",
+      "nome": "Revisão independente",
+      "tipo": "Skill + agente",
       "funcao": "Confere a origem das afirmações ao fim de cada bloco (módulos 2, 4, 6 e 8)",
-      "skills": ["artifact-evidence-review"], "agentes": ["artifact-reviewer"], "artefatos": ["revisoes.md"]
+      "skills": [
+        "artifact-evidence-review"
+      ],
+      "agentes": [
+        "artifact-reviewer"
+      ],
+      "artefatos": [
+        "revisoes.md"
+      ]
     },
     {
-      "nome": "Ajuste pequeno (trilha pocket)", "tipo": "Skill",
+      "nome": "Ajuste pequeno (trilha pocket)",
+      "tipo": "Skill",
       "funcao": "Ajuste pequeno em um único documento curto",
-      "skills": ["pocket-feature-frame"], "agentes": [], "artefatos": ["ajustes/AJ-NN-<slug>.md"]
+      "skills": [
+        "pocket-feature-frame"
+      ],
+      "agentes": [],
+      "artefatos": [
+        "ajustes/AJ-NN-<slug>.md"
+      ]
     },
     {
-      "nome": "Orquestração", "tipo": "Skill",
+      "nome": "Orquestração",
+      "tipo": "Skill",
       "funcao": "Define a trilha, delega cada módulo, aciona verificação e revisão e registra as aprovações",
-      "skills": ["esteira-orchestration"], "agentes": [], "artefatos": ["contexto.md", "aprovacoes.md"]
+      "skills": [
+        "esteira-orchestration"
+      ],
+      "agentes": [],
+      "artefatos": [
+        "contexto.md",
+        "aprovacoes.md"
+      ]
     },
     {
-      "nome": "Painel de perspectivas", "tipo": "Skill",
+      "nome": "Alinhamento entre produtos",
+      "tipo": "Skill",
+      "funcao": "Em imersões com mais de um produto: publica a interface do produto, lê a dos vizinhos e trata dependências e sobreposições",
+      "skills": [
+        "cross-product-alignment"
+      ],
+      "agentes": [],
+      "artefatos": [
+        "interface.md",
+        "vizinhos/"
+      ]
+    },
+    {
+      "nome": "Painel de perspectivas",
+      "tipo": "Skill",
       "funcao": "Painel de 3 a 5 pontos de vista para decisões",
-      "skills": ["get-more-perspectives"], "agentes": [], "artefatos": []
+      "skills": [
+        "get-more-perspectives"
+      ],
+      "agentes": [],
+      "artefatos": []
     },
     {
-      "nome": "Estilo de escrita", "tipo": "Skill",
+      "nome": "Estilo de escrita",
+      "tipo": "Skill",
       "funcao": "Aplica o estilo de escrita do usuário a textos de comunicação",
-      "skills": ["match-my-writing-style"], "agentes": [], "artefatos": []
+      "skills": [
+        "match-my-writing-style"
+      ],
+      "agentes": [],
+      "artefatos": []
     }
   ],
   "skills": {
-    "discovery-product-strategy": {"assets": ["evidencias.md", "01-discovery.md", "02-estrategia.md", "contexto.md"], "scripts": ["iniciativa.py"]},
-    "hypothesis-validation-research": {"assets": ["02b-validacao-hipoteses.md"], "scripts": []},
-    "behavioral-modeling-feature-framing": {"assets": ["03-modelagem.md", "03b-arvore-oportunidades.md", "04-feature-frames.md"], "scripts": ["iniciativa.py"]},
-    "technical-feasibility-check": {"assets": [], "scripts": []},
-    "systemic-ui-interaction-design": {"assets": ["05-prototipacao.md"], "scripts": ["iniciativa.py"]},
-    "prototype-usability-testing": {"assets": ["05b-teste-usabilidade.md"], "scripts": []},
-    "technical-handoff-prompt-engineering": {"assets": ["06-handoff.md"], "scripts": ["iniciativa.py", "criar_issues.py"]},
-    "behavioral-analytics-ux-fixes": {"assets": ["07-diagnostico-comportamental.md"], "scripts": ["clarity_resumo.py"]},
-    "behavioral-experimentation-cro": {"assets": ["08-experimentos.md"], "scripts": []},
-    "artifact-evidence-review": {"assets": ["revisoes.md"], "scripts": ["iniciativa.py"]},
-    "esteira-orchestration": {"assets": ["contexto.md", "aprovacoes.md"], "scripts": ["iniciativa.py"]},
-    "pocket-feature-frame": {"assets": ["pocket.md"], "scripts": ["criar_issues.py"]},
-    "match-my-writing-style": {"assets": ["voice-card.md"], "scripts": []},
-    "get-more-perspectives": {"assets": [], "scripts": []}
+    "discovery-product-strategy": {
+      "assets": [
+        "evidencias.md",
+        "01-discovery.md",
+        "02-estrategia.md",
+        "contexto.md",
+        "02-estrategia-varios-produtos.md",
+        "partilha.md"
+      ],
+      "scripts": [
+        "iniciativa.py"
+      ]
+    },
+    "hypothesis-validation-research": {
+      "assets": [
+        "02b-validacao-hipoteses.md"
+      ],
+      "scripts": []
+    },
+    "behavioral-modeling-feature-framing": {
+      "assets": [
+        "03-modelagem.md",
+        "03b-arvore-oportunidades.md",
+        "04-feature-frames.md",
+        "partilha.md"
+      ],
+      "scripts": [
+        "iniciativa.py"
+      ]
+    },
+    "technical-feasibility-check": {
+      "assets": [],
+      "scripts": []
+    },
+    "systemic-ui-interaction-design": {
+      "assets": [
+        "05-prototipacao.md"
+      ],
+      "scripts": [
+        "iniciativa.py"
+      ]
+    },
+    "prototype-usability-testing": {
+      "assets": [
+        "05b-teste-usabilidade.md"
+      ],
+      "scripts": []
+    },
+    "technical-handoff-prompt-engineering": {
+      "assets": [
+        "06-handoff.md"
+      ],
+      "scripts": [
+        "iniciativa.py",
+        "criar_issues.py"
+      ]
+    },
+    "behavioral-analytics-ux-fixes": {
+      "assets": [
+        "07-diagnostico-comportamental.md"
+      ],
+      "scripts": [
+        "clarity_resumo.py"
+      ]
+    },
+    "behavioral-experimentation-cro": {
+      "assets": [
+        "08-experimentos.md"
+      ],
+      "scripts": []
+    },
+    "artifact-evidence-review": {
+      "assets": [
+        "revisoes.md"
+      ],
+      "scripts": [
+        "iniciativa.py"
+      ]
+    },
+    "esteira-orchestration": {
+      "assets": [
+        "contexto.md",
+        "aprovacoes.md",
+        "partilha.md"
+      ],
+      "scripts": [
+        "iniciativa.py"
+      ]
+    },
+    "pocket-feature-frame": {
+      "assets": [
+        "pocket.md"
+      ],
+      "scripts": [
+        "criar_issues.py"
+      ]
+    },
+    "match-my-writing-style": {
+      "assets": [
+        "voice-card.md"
+      ],
+      "scripts": []
+    },
+    "get-more-perspectives": {
+      "assets": [],
+      "scripts": []
+    },
+    "cross-product-alignment": {
+      "assets": [],
+      "scripts": [
+        "iniciativa.py"
+      ]
+    }
   },
   "modelos": {
     "_comentario": "Nível de modelo por agente. `esteira.py install` grava o campo `model:` no agente quando a plataforma tem um nome definido para o nível; valor vazio mantém o modelo da sessão. Preencha gemini e copilot com os nomes de modelo disponíveis na sua conta.",
@@ -155,9 +403,21 @@
       "artifact-reviewer": "padrao"
     },
     "plataformas": {
-      "claude": {"leve": "haiku", "padrao": "sonnet", "avancado": "opus"},
-      "gemini": {"leve": "", "padrao": "", "avancado": ""},
-      "copilot": {"leve": "", "padrao": "", "avancado": ""}
+      "claude": {
+        "leve": "haiku",
+        "padrao": "sonnet",
+        "avancado": "opus"
+      },
+      "gemini": {
+        "leve": "",
+        "padrao": "",
+        "avancado": ""
+      },
+      "copilot": {
+        "leve": "",
+        "padrao": "",
+        "avancado": ""
+      }
     }
   }
 }
