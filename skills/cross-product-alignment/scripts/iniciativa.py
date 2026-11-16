@@ -6,6 +6,7 @@ trechos citados, copiar Out of Scope e Por quê para o handoff e conferir a
 consistência dos artefatos.
 
 Uso (o diretório é a pasta da iniciativa, ex.: iniciativas/portal-fornecedores):
+    iniciativa.py inventariar <dir>               relaciona originais e textos citáveis em 00-insumos/INVENTARIO.md
     iniciativa.py numerar   <dir>                 numera as linhas de 00-insumos/ em 00-insumos/numerados/
     iniciativa.py citar     <dir> D1:L0012 ...    exibe as linhas citadas (aceita faixas: D1:L0012-L0015)
     iniciativa.py citar     <dir> --evidencias    exibe cada evidência ao lado das linhas de origem
@@ -67,7 +68,7 @@ def numerar(root: Path) -> int:
     out.mkdir(exist_ok=True)
     index_path = out / "indice.json"
     index: dict[str, str] = json.loads(read(index_path)) if index_path.exists() else {}
-    files = sorted(p for p in src.iterdir() if p.is_file() and p.suffix.lower() in TEXT_EXT)
+    files = sorted(p for p in src.iterdir() if p.is_file() and p.suffix.lower() in TEXT_EXT and p.name != "INVENTARIO.md")
     skipped = sorted(p.name for p in src.iterdir() if p.is_file() and p.suffix.lower() not in TEXT_EXT)
     next_id = max([int(v[1:]) for v in index.values()] + [0]) + 1
     rows = []
@@ -93,7 +94,7 @@ def numerar(root: Path) -> int:
     for d, n, l, c in rows:
         print(f"{d}  {n}: {l} linhas, ~{round(c / 3.3)} tokens")
     for name in skipped:
-        print(f"AVISO  {name}: formato não textual, não numerado (converta para .md ou .txt)")
+        print(f"AVISO  {name}: formato não textual, não numerado (mova para 00-insumos/originais/ e gere o texto citável pela etapa de entrada)")
     return 0
 
 
@@ -397,6 +398,7 @@ def verificar(root: Path) -> int:
                 err.append(f"06-handoff.md: {kr} sem evento ou medida no Plano de Instrumentação")
         done.append(f"{len(issues)} issues: cobertura do MVP, cenários, blocos derivados e instrumentação")
 
+    verificar_insumos(root, err, warn, done)
     verificar_produtos(root, err, warn, done)
 
     if exists("contexto.md"):
@@ -412,6 +414,91 @@ def verificar(root: Path) -> int:
         print(f"ok     {d}")
     print(f"\n{len(err)} erro(s), {len(warn)} aviso(s)")
     return 1 if err else 0
+
+
+# ---------------------------------------------------------------- entrada de insumos
+
+TIPOS_ORIGINAL = {
+    "Áudio": {".mp3", ".m4a", ".wav", ".ogg", ".aac", ".flac", ".wma"},
+    "Vídeo": {".mp4", ".mov", ".mkv", ".webm", ".avi", ".m4v"},
+    "Imagem": {".png", ".jpg", ".jpeg", ".webp", ".gif", ".heic", ".bmp", ".svg", ".tif", ".tiff"},
+    "Documento": {".pdf", ".doc", ".docx", ".ppt", ".pptx", ".xls", ".xlsx", ".odt", ".odp", ".ods", ".rtf", ".key", ".pages"},
+    "Exportação": {".json", ".csv", ".tsv", ".rtb", ".zip", ".html", ".jsx", ".tsx"},
+    "Protótipo": {".fig", ".penpot", ".url", ".webloc"},
+}
+CAMPO_RE = lambda nome: re.compile(rf"\*\*{nome}:\*\*\s*([^·\n]+)")
+
+
+def _tipo_original(path: Path) -> str:
+    ext = path.suffix.lower()
+    return next((t for t, exts in TIPOS_ORIGINAL.items() if ext in exts), "Outro")
+
+
+def insumos(root: Path) -> dict:
+    """Relaciona os originais de 00-insumos/originais/ com os textos citáveis derivados deles."""
+    src = root / "00-insumos"
+    orig_dir = src / "originais"
+    originais = sorted(p for p in orig_dir.rglob("*") if p.is_file()) if orig_dir.is_dir() else []
+    textos = sorted(p for p in src.iterdir() if p.is_file() and p.suffix.lower() in TEXT_EXT and p.name != "INVENTARIO.md") if src.is_dir() else []
+    docs = []
+    cobertos: set[str] = set()
+    for t in textos:
+        head = "\n".join(read(t).splitlines()[:12])
+        campo = lambda n: (CAMPO_RE(n).search(head) or [None, ""])[1].strip() if CAMPO_RE(n).search(head) else ""
+        origens = re.findall(r"`([^`]+)`", campo("Origem"))
+        docs.append({"arquivo": t.name, "origens": origens, "tipo": campo("Tipo") or "Texto recebido",
+                     "metodo": campo("Método"), "validacao": campo("Validação") or ("—" if not origens else "não informada")})
+        cobertos.update(o.replace("originais/", "") for o in origens)
+    pendentes = [p for p in originais if str(p.relative_to(orig_dir)) not in cobertos]
+    return {"originais": originais, "docs": docs, "pendentes": pendentes, "dir": orig_dir}
+
+
+def inventariar(root: Path) -> int:
+    src = root / "00-insumos"
+    if not src.is_dir():
+        print(f"Pasta não encontrada: {src}", file=sys.stderr)
+        return 1
+    inv = insumos(root)
+    L = ["# Inventário de insumos", "",
+         "> Gerado por `iniciativa.py inventariar`. Não editar: os dados vêm do cabeçalho de cada insumo.", "",
+         "## Textos citáveis", "",
+         "| Insumo | Tipo | Origem | Método | Validação |", "| :--- | :--- | :--- | :--- | :--- |"]
+    for d in inv["docs"]:
+        L.append(f"| `{d['arquivo']}` | {d['tipo']} | {', '.join(f'`{o}`' for o in d['origens']) or '—'} | {d['metodo'] or '—'} | {d['validacao']} |")
+    L += ["", "## Originais sem texto citável", ""]
+    if inv["pendentes"]:
+        L += ["| Original | Tipo | Guia |", "| :--- | :--- | :--- |"]
+        guia = {"Áudio": "audio-video", "Vídeo": "audio-video", "Imagem": "wireframes, prototipos ou miro", "Documento": "documentos",
+                "Exportação": "miro, prototipos ou documentos", "Protótipo": "prototipos"}
+        L += [f"| `originais/{p.relative_to(inv['dir'])}` | {_tipo_original(p)} | {guia.get(_tipo_original(p), 'documentos')} |" for p in inv["pendentes"]]
+    else:
+        L.append("Nenhum.")
+    (src / "INVENTARIO.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    print(f"{len(inv['docs'])} texto(s) citável(is), {len(inv['originais'])} original(is), {len(inv['pendentes'])} sem texto citável")
+    for p in inv["pendentes"]:
+        print(f"PENDENTE  originais/{p.relative_to(inv['dir'])} ({_tipo_original(p)})")
+    for d in inv["docs"]:
+        if d["origens"] and not d["validacao"].lower().startswith("validad"):
+            print(f"A VALIDAR {d['arquivo']} ({d['tipo']}): {d['validacao']}")
+    return 0
+
+
+def verificar_insumos(root: Path, err: list[str], warn: list[str], done: list[str]) -> None:
+    if not (root / "00-insumos").is_dir():
+        return
+    inv = insumos(root)
+    if not inv["originais"] and not any(d["origens"] for d in inv["docs"]):
+        return
+    for p in inv["pendentes"]:
+        warn.append(f"00-insumos/originais/{p.relative_to(inv['dir'])}: original sem texto citável; seu conteúdo não entra nas evidências")
+    nomes = {str(p.relative_to(inv["dir"])) for p in inv["originais"]}
+    for d in inv["docs"]:
+        for o in d["origens"]:
+            if o.replace("originais/", "") not in nomes:
+                err.append(f"00-insumos/{d['arquivo']}: cita o original '{o}', que não existe em originais/")
+        if d["origens"] and not d["validacao"].lower().startswith("validad"):
+            warn.append(f"00-insumos/{d['arquivo']} ({d['tipo']}): conversão não validada por uma pessoa; evidências derivadas devem sustentar apenas Suposições")
+    done.append(f"insumos: {len(inv['originais'])} originais, {len(inv['docs'])} textos citáveis")
 
 
 # ---------------------------------------------------------------- vários produtos
@@ -792,7 +879,7 @@ def verificar_produtos(root: Path, err: list[str], warn: list[str], done: list[s
 
 def main() -> int:
     args = sys.argv[1:]
-    comandos = ("numerar", "citar", "montar", "verificar", "derivar", "publicar", "vizinhos")
+    comandos = ("inventariar", "numerar", "citar", "montar", "verificar", "derivar", "publicar", "vizinhos")
     if len(args) < 2 or args[0] not in comandos:
         print(__doc__)
         return 2
@@ -800,6 +887,8 @@ def main() -> int:
     if not root.is_dir():
         print(f"Iniciativa não encontrada: {root}", file=sys.stderr)
         return 1
+    if args[0] == "inventariar":
+        return inventariar(root)
     if args[0] == "numerar":
         return numerar(root)
     if args[0] == "citar":

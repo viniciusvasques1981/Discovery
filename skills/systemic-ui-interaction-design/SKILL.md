@@ -10,7 +10,7 @@ Módulo 5 da Esteira de Produto AI-Enhanced.
 | | |
 | :--- | :--- |
 | **Framework** | Agile Prototyping |
-| **Entradas** | `contexto.md`, `04-feature-frames.md` e o Design System da empresa (documentação, tokens ou biblioteca de componentes). Não ler outros artefatos |
+| **Entradas** | `contexto.md`, `04-feature-frames.md` e o Design System da empresa (documentação, tokens ou biblioteca de componentes). Não ler outros artefatos. Leituras de wireframe e de protótipo da Etapa 0 citadas nos Feature Frames servem de referência, nunca de especificação; estilos e componentes lidos de um protótipo só são tratados como Design System com confirmação do usuário |
 | **Saída** | `05-prototipacao.md` em `iniciativas/<slug>/` |
 | **Skill anterior** | `behavioral-modeling-feature-framing` |
 | **Próxima skill** | `technical-handoff-prompt-engineering`; antes dela, opcionalmente, `prototype-usability-testing` (Etapa 5B) |

@@ -10,7 +10,7 @@ Módulos 1 e 2 da Esteira de Produto AI-Enhanced.
 | | |
 | :--- | :--- |
 | **Frameworks** | Design Thinking (fase de Empatia), Golden Circle, Lean UX |
-| **Entradas** | Módulo 1: `00-insumos/`. Módulo 2: `evidencias.md` e `01-discovery.md` |
+| **Entradas** | Módulo 1: os textos de `00-insumos/` (material em outros formatos passa antes pela Etapa 0, `source-intake-documentation`). Módulo 2: `evidencias.md` e `01-discovery.md` |
 | **Saídas** | `evidencias.md`, `01-discovery.md` e `02-estrategia.md` em `iniciativas/<slug>/` |
 | **Próxima skill** | `behavioral-modeling-feature-framing`; antes dela, opcionalmente, `hypothesis-validation-research` (Etapa 2B) |
 
@@ -29,9 +29,10 @@ Módulos 1 e 2 da Esteira de Produto AI-Enhanced.
 
 #### 1. Base de Evidências
 
+0. Se houver arquivos em `00-insumos/originais/`, conferir `00-insumos/INVENTARIO.md`: original sem texto citável não entra nas evidências, e isso deve ser dito ao usuário antes de prosseguir.
 1. Numerar os insumos: `python3 scripts/iniciativa.py numerar iniciativas/<slug>`. O script grava cada documento em `00-insumos/numerados/` com um identificador por linha (`D1:L0012`) e um índice com o tamanho de cada documento.
 2. Ler os documentos numerados **um por vez**. A cada documento, acrescentar as evidências extraídas a `evidencias.md` antes de abrir o seguinte. Não carregar todos os documentos de uma vez.
-3. Cada evidência é uma afirmação fiel ao insumo, em uma frase, sem interpretação, com: identificador (E001…), tipo (Dado, Declaração, Relato, Restrição, Decisão, Pedido), fonte (quem disse ou qual documento) e referência de linha. Trechos contíguos usam faixa: `D1:L0012-L0015`.
+3. Cada evidência é uma afirmação fiel ao insumo, em uma frase, sem interpretação, com: identificador (E001…), tipo (Dado, Declaração, Relato, Restrição, Decisão, Pedido, Esboço, Protótipo, Nota de dinâmica), fonte (quem disse ou qual documento) e referência de linha. Trechos contíguos usam faixa: `D1:L0012-L0015`.
 4. Registrar tudo que possa sustentar uma certeza, suposição, dúvida, dor, restrição ou pedido. Conversa sem conteúdo (saudações, logística da reunião) não vira evidência.
 
 Sem execução de scripts: citar documento e trecho de forma manual (`D1`, mais as primeiras palavras do trecho) e manter as demais regras.
@@ -49,7 +50,7 @@ Sem execução de scripts: citar documento e trecho de forma manual (`D1`, mais 
 - **Suposições:** Hipóteses de comportamento, palpites de stakeholders e premissas operacionais que exigem teste em campo. Formular como afirmações falseáveis.
 - **Dúvidas:** Lacunas técnicas, indefinições de regras de negócio e limites de infraestrutura. Formular estritamente como perguntas objetivas.
 
-Critério de classificação: evidência do tipo Dado, Restrição ou Decisão pode sustentar Certeza. Evidência do tipo Declaração, Relato isolado ou Pedido sustenta Suposição.
+Critério de classificação: evidência do tipo Dado, Restrição ou Decisão pode sustentar Certeza. Evidência do tipo Declaração, Relato isolado, Pedido, Esboço, Protótipo ou Nota de dinâmica sustenta Suposição. Trecho marcado como `[inferência]` no insumo, ou vindo de conversão ainda não validada, também sustenta apenas Suposição.
 
 #### 4. Dores Validadas do Negócio/Operação
 

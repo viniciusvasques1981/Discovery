@@ -20,8 +20,9 @@ A conversa principal coordena; o conteúdo fica nos arquivos.
 
 ## Abertura
 
-1. Criar `iniciativas/<slug>/` com `contexto.md` e `aprovacoes.md` (modelos em `assets/`) e a pasta `00-insumos/` para o material bruto.
-2. Definir a trilha e os aprovadores de cada módulo com o usuário. Registrar a trilha em `contexto.md`.
+1. Criar `iniciativas/<slug>/` com `contexto.md` e `aprovacoes.md` (modelos em `assets/`) e a pasta `00-insumos/`. Material já em texto fica em `00-insumos/`; gravações, imagens, documentos e exportações de protótipo ou de board ficam em `00-insumos/originais/`; para protótipo lido por conector, uma nota com o link e os quadros lidos.
+2. Executar `python3 scripts/iniciativa.py inventariar iniciativas/<slug>`. Havendo original sem texto citável, delegar a Etapa 0 ao `source-documentalist` e pedir ao usuário a validação das conversões antes do Módulo 1. Conversão não validada não impede o avanço, mas suas evidências sustentam apenas Suposições.
+3. Definir a trilha e os aprovadores de cada módulo com o usuário. Registrar a trilha em `contexto.md`.
 
 ## Trilhas
 
@@ -51,6 +52,7 @@ Tabela gerada a partir de `esteira.json`.
 <!-- gerado:delegacao -->
 | Módulo / Etapa | Agente | Skill | Artefato | Revisão independente | Aprovador padrão |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| 0 — Entrada de insumos | `source-documentalist` | `source-intake-documentation` | `00-insumos/*.md`, `00-insumos/INVENTARIO.md` | — | Product Manager |
 | 1 — Discovery | `discovery-strategist` | `discovery-product-strategy` | `evidencias.md`, `01-discovery.md` | — | Sponsor |
 | 2 — Estratégia | `discovery-strategist` | `discovery-product-strategy` | `02-estrategia.md` | Sim | Sponsor |
 | 2B — Validação de Hipóteses (opcional) | `discovery-strategist` | `hypothesis-validation-research` | `02b-validacao-hipoteses.md` | — | Product Manager |
